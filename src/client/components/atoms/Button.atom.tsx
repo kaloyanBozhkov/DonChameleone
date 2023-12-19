@@ -14,7 +14,7 @@ export default function Button({
   labelClassName?: string
 }) {
   return (
-    <ComicShadow className="">
+    <ComicShadow className="select-none">
       <button
         className={`relative cursor-pointer border-[4px] border-white ${className} group z-0`}
         onClick={onClick}

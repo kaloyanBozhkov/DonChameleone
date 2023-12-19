@@ -7,7 +7,7 @@ const ComicPage = ({ children, className }: { children: ReactNode; className?: s
 
   return (
     <div
-      className={`relative z-0 h-full min-h-full w-full overflow-hidden border-[10px] border-white ${className}`}
+      className={`relative z-0 h-full min-h-full w-full overflow-hidden border-[6px] border-white sm:border-[10px] ${className}`}
     >
       {children}
       <div className="absolute inset-0 -z-10">
