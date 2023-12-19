@@ -50,6 +50,7 @@ module.exports = {
         // animate this one
         // linear-gradient(180deg, #BF8FE5 38.02%, #94F9FF 70.83%);
         'main-1': 'url("/public/assets/img/bg-car-visual.png")',
+        'dots-radial': 'url("/public/assets/img/bg-dots-radial.png")',
         'linear-bg-overlay':
           'linear-gradient(270deg, rgba(90, 0, 133, 0.30) 13.37%, rgba(1, 157, 167, 0.30) 41.84%, rgba(1, 157, 167, 0.30) 59.44%, rgba(1, 18, 167, 0.30) 88.98%)',
       },
