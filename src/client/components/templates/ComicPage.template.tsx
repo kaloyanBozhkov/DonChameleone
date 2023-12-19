@@ -1,28 +1,16 @@
-import { ReactNode, useLayoutEffect, useState } from 'react'
+import { type ReactNode, useLayoutEffect, useState } from 'react'
 
-export default function MainLayout({ children }: { children: ReactNode }) {
-  const [scale, setScale] = useState(1)
+import useSwing from '@/hooks/animations/useSwing'
 
-  useLayoutEffect(() => {
-    let ids = [] as ReturnType<typeof setTimeout>[]
-    const runAnim = () => {
-      const id = setTimeout(
-        () => {
-          setScale((prev) => (prev === 1.1 ? 1 : 1.1))
-          runAnim()
-        },
-        ids.length > 0 ? 10000 : 0
-      )
-      ids.push(id)
-    }
-    runAnim()
-    return () => ids.forEach(clearTimeout)
-  }, [])
+const ComicPage = ({ children, className }: { children: ReactNode; className?: string }) => {
+  const scale = useSwing({ min: 1, max: 1.1, duration: 10000 })
 
   return (
-    <div className="relative h-full min-h-full w-full border-[10px] border-white">
+    <div
+      className={`relative z-0 h-full min-h-full w-full overflow-hidden border-[10px] border-white ${className}`}
+    >
       {children}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         <div className="relative h-full w-full overflow-hidden">
           <div
             className="bg-dots-radial absolute inset-0 -z-[5] bg-cover bg-center transition-transform duration-[10000ms] ease-linear"
@@ -42,3 +30,5 @@ export default function MainLayout({ children }: { children: ReactNode }) {
     </div>
   )
 }
+
+export default ComicPage
