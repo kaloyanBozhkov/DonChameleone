@@ -12,7 +12,7 @@ const DonButton = ({
   donMarginFix?: string
 }) => {
   return (
-    <div className={`z-0 flex flex-col items-center justify-center gap-0 ${className}`}>
+    <div className={`z-0 flex flex-col items-center justify-end gap-0 ${className} h-full w-full`}>
       <div className="z-0 overflow-hidden">
         <div style={{ margin: donMarginFix }} className="animate-slide-top">
           {don}
