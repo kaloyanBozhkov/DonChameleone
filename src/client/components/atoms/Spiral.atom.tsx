@@ -16,7 +16,7 @@ const Spiral = ({
       <div className="relative h-full w-full">
         <div className={`absolute -inset-[400px] flex items-center justify-center`}>
           <img
-            src="/assets/img/bg-spiral-effect.png"
+            src={require('@/../../public/assets/img/bg-spiral-effect.png')}
             className={`${maxOn === 'h' ? 'h-full w-[auto]' : 'h-[auto] w-full'} animate-spin 
             transition-transform ease-linear
               `}

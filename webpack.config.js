@@ -17,16 +17,24 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
+    alias: {
+      '@': path.resolve(__dirname, 'src', 'client'),
+    },
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ttf)$/i,
         type: 'asset/inline',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1024 * 1024 * 200,
+          },
+        },
       },
       {
         test: /\.css$/i,
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, 'src', 'client'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
