@@ -4,7 +4,7 @@ const DonButton = ({
   don,
   btn,
   className = '',
-  donMarginFix = '0 0 -30px 0',
+  donMarginFix = '',
 }: {
   don: ReactNode
   btn: ReactNode
@@ -14,9 +14,7 @@ const DonButton = ({
   return (
     <div className={`z-0 flex flex-col items-center justify-end gap-0 ${className} h-full w-full`}>
       <div className="z-0 overflow-hidden">
-        <div style={{ margin: donMarginFix }} className="animate-slide-top">
-          {don}
-        </div>
+        <div className={`animate-slide-top ${donMarginFix}`}>{don}</div>
       </div>
       <div className="z-10">{btn}</div>
     </div>
