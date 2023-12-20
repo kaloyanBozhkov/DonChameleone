@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/client/*"],
-      "~/*": ["./src/server/*"]
+      "~/*": ["./src/server/*"],
+      "common/*": ["./src/common/*"]
     }
   },
   "include": ["./src/**/*"],

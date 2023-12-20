@@ -2,6 +2,15 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const { DefinePlugin } = require('webpack')
+
+require('dotenv').config({ path: './.env' })
+
+const removePrivateVars = (env) =>
+  Object.keys(env).reduce(
+    (acc, key) => ({ ...acc, ...(key.includes('PRIVATE') ? {} : { [key]: env[key] }) }),
+    {}
+  )
 
 module.exports = {
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
@@ -61,6 +70,9 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [{ from: './public/assets', to: './assets' }],
+    }),
+    new DefinePlugin({
+      'process.env': JSON.stringify(removePrivateVars(process.env)),
     }),
   ],
 }

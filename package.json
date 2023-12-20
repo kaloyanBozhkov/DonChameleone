@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "build": "webpack",
+    "start": "tsc env.ts && node env.js && webpack-dev-server --open",
+    "build": "tsc env.ts && node env.js && webpack",
     "eslint_check": "eslint",
     "type_watch": "tsc --project . --watch",
     "type_check": "tsc --project .",
@@ -38,12 +38,14 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^4.30.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.0",
