@@ -7,7 +7,7 @@ import Group from '../layouts/Group.layout'
 
 import CheckboxButton from './CheckboxButton.molecule'
 
-const HeaderControls = ({ rightAction }: { rightAction?: 'rules' | 'back' }) => {
+const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'back' }) => {
   const theme = useTheme(),
     btnSizes = 'h-[40px] w-[120px] sm:w-[150px] sm:h-[50px] lg:h-[74px] lg:w-[192px]',
     labelSizes =
@@ -40,15 +40,17 @@ const HeaderControls = ({ rightAction }: { rightAction?: 'rules' | 'back' }) => 
         </Link>
       )}
       {rightAction === 'back' && (
-        <Button
-          label={
-            <Group className="h-full w-full gap-[6px]">
-              <p>Back</p>
-            </Group>
-          }
-          className={`bg-hot-200 ${btnSizes}`}
-          labelClassName={labelSizes}
-        />
+        <Link to="/">
+          <Button
+            label={
+              <Group className="h-full w-full gap-[6px]">
+                <p>Back</p>
+              </Group>
+            }
+            className={`bg-hot-200 ${btnSizes}`}
+            labelClassName={labelSizes}
+          />
+        </Link>
       )}
     </div>
   )
