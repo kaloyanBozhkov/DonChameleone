@@ -66,6 +66,11 @@ export default {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' },
         },
+        'pop-in': {
+          '0%': { transform: 'scale(0)' },
+          '80%': { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
+        },
         scale: {
           '0%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(1.1)' },
