@@ -57,7 +57,5 @@
     "zod": "^3.22.4",
     "zustand": "^4.4.7"
   },
-  "name": "donchameleone",
-  "module": "index.ts",
-  "type": "module"
+  "name": "don-chameleone"
 }
