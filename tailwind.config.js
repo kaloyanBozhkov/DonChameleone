@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        don: "Bada, 'Arial Black', Arial",
+        don: 'Bada, "Arial Black", Arial',
       },
       colors: {
         blue: {
@@ -82,6 +82,9 @@ export default {
           value: {
             textShadow: `-${px}px -${px}px 0 #000, ${px}px -${px}px 0 #000, -${px}px ${px}px 0 #000, ${px}px ${px}px 0 #000`,
           },
+          writable: true,
+          enumerable: true,
+          configurable: true,
         })
       }
 
