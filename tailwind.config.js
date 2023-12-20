@@ -51,7 +51,8 @@ export default {
         'linear-light-purple': 'linear-gradient(273deg, #FFF 0.09%, #C88BEB 99.91%)',
         // animate this one
         // linear-gradient(180deg, #BF8FE5 38.02%, #94F9FF 70.83%);
-        'main-1': 'url("/public/assets/img/bg-car-visual.png")',
+        'main-1': 'url("/public/assets/img/bg-car-bw.png")',
+        'main-2': 'url("/public/assets/img/bg-car-colored.png")',
         'dots-full': 'url("/public/assets/img/bg-dots-full.png")',
         'dots-radial': 'url("/public/assets/img/bg-dots-radial.png")',
         'spiral-effect': 'url("/public/assets/img/bg-spiral-effect.png")',

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import useTheme from '@/store/useTheme'
 
@@ -9,6 +9,7 @@ import CheckboxButton from './CheckboxButton.molecule'
 
 const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'back' }) => {
   const theme = useTheme(),
+    nav = useNavigate(),
     btnSizes = 'h-[40px] w-[120px] sm:w-[150px] sm:h-[50px] lg:h-[74px] lg:w-[192px]',
     labelSizes =
       'text-[25px] leading-[25px] sm:text-[31px] sm:leading-[31px] lg:text-[40px] lg:leading-[40px] lg:stroked-2px stroked-1px'
@@ -40,17 +41,16 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
         </Link>
       )}
       {rightAction === 'back' && (
-        <Link to="/">
-          <Button
-            label={
-              <Group className="h-full w-full gap-[6px]">
-                <p>Back</p>
-              </Group>
-            }
-            className={`bg-hot-200 ${btnSizes}`}
-            labelClassName={labelSizes}
-          />
-        </Link>
+        <Button
+          onClick={() => nav(-1)}
+          label={
+            <Group className="h-full w-full gap-[6px]">
+              <p>Back</p>
+            </Group>
+          }
+          className={`bg-hot-200 ${btnSizes}`}
+          labelClassName={labelSizes}
+        />
       )}
     </div>
   )

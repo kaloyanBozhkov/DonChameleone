@@ -1,6 +1,40 @@
 import { type ReactNode } from 'react'
 
-const ComicPage = ({ children, className }: { children: ReactNode; className?: string }) => {
+import Don, { DonColors } from '../molecules/Don.molecule'
+
+const ComicPage = ({
+  children,
+  className,
+  variant = 'default',
+}: {
+  children: ReactNode
+  className?: string
+  variant?: 'bw' | 'default'
+}) => {
+  const { pageBg, overlay, dots, don } = (() => {
+    switch (variant) {
+      case 'bw':
+        return {
+          pageBg: 'bg-main-2 opacity-30',
+          overlay: 'bg-white opacity-10',
+          dots: 'bg-dots-full',
+          don: (
+            <Don
+              don={DonColors.BW}
+              className="absolute bottom-[-10px] left-[70px] z-[-11] h-[70vh] w-[auto] max-w-[unset] opacity-75"
+            />
+          ),
+        }
+      default:
+        return {
+          pageBg: 'bg-main-1',
+          overlay: 'bg-linear-bg-overlay',
+          dots: 'bg-dots-radial',
+          don: null,
+        }
+    }
+  })()
+
   return (
     <div className="absolute inset-0">
       <div
@@ -9,10 +43,13 @@ const ComicPage = ({ children, className }: { children: ReactNode; className?: s
         {children}
         <div className="absolute inset-0 -z-10">
           <div className="relative h-full w-full overflow-hidden">
-            <div className="animate-sexy-pops absolute inset-0 -z-[5] bg-dots-radial bg-cover bg-center" />
-            <div className="absolute inset-0 -z-10 bg-linear-bg-overlay" />
             <div
-              className="bg-no-cover animate-sexy-pops absolute inset-0 -z-20 bg-main-1 bg-cover bg-center"
+              className={`animate-sexy-pops absolute inset-0 -z-[5] ${dots} bg-cover bg-center`}
+            />
+            <div className={`absolute inset-0 -z-[8] ${overlay}`} />
+            {don}
+            <div
+              className={`bg-no-cover animate-sexy-pops absolute inset-0 -z-20 ${pageBg} bg-cover bg-center`}
               style={{ animationDuration: '12000ms' }}
             />
           </div>
