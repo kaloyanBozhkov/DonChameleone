@@ -7,7 +7,7 @@ import ComicPage from '@/components/templates/ComicPage.template'
 export default function IndexPage() {
   return (
     <ComicPage>
-      <AppLayout header={<HeaderControls rightAction="rules" />}>
+      <AppLayout header={<HeaderControls />}>
         <Center>
           <PlayCard />
         </Center>

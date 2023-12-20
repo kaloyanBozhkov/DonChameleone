@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import useTheme from '@/store/useTheme'
 
 import Button from '../atoms/Button.atom'
@@ -5,7 +7,7 @@ import Group from '../layouts/Group.layout'
 
 import CheckboxButton from './CheckboxButton.molecule'
 
-const HeaderControls = () => {
+const HeaderControls = ({ rightAction }: { rightAction?: 'rules' | 'back' }) => {
   const theme = useTheme(),
     btnSizes = 'h-[40px] w-[120px] sm:w-[150px] sm:h-[50px] lg:h-[74px] lg:w-[192px]',
     labelSizes =
@@ -19,20 +21,35 @@ const HeaderControls = () => {
         className={`bg-pink ${btnSizes}`}
         labelClassName={labelSizes}
       />
-      <Button
-        label={
-          <Group className="h-full w-full gap-[6px]">
-            <img
-              src={require('@/../../public/assets/icons/comic.png')}
-              alt="comic book"
-              className="h-[100%] w-[auto]"
-            />
-            <p>Rules</p>
-          </Group>
-        }
-        className={`bg-hot ${btnSizes}`}
-        labelClassName={labelSizes}
-      />
+      {rightAction === 'rules' && (
+        <Link to="/rules">
+          <Button
+            label={
+              <Group className="h-full w-full gap-[6px]">
+                <img
+                  src={require('@/../../public/assets/icons/comic.png')}
+                  alt="comic book"
+                  className="h-[100%] w-[auto]"
+                />
+                <p>Rules</p>
+              </Group>
+            }
+            className={`bg-hot ${btnSizes}`}
+            labelClassName={labelSizes}
+          />
+        </Link>
+      )}
+      {rightAction === 'back' && (
+        <Button
+          label={
+            <Group className="h-full w-full gap-[6px]">
+              <p>Back</p>
+            </Group>
+          }
+          className={`bg-hot-200 ${btnSizes}`}
+          labelClassName={labelSizes}
+        />
+      )}
     </div>
   )
 }

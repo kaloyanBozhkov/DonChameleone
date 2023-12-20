@@ -65,9 +65,14 @@ export default {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' },
         },
+        scale: {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.1)' },
+        },
       },
       animation: {
         'slide-top': 'slide-top 1000ms ease-in-out forwards',
+        'sexy-pops': 'scale 10000ms ease-in-out infinite alternate',
       },
     },
   },
