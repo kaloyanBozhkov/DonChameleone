@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 
+import useGameConfig from '@/store/useGameConfig'
 import useTheme from '@/store/useTheme'
 
 import Button from '../atoms/Button.atom'
@@ -9,6 +10,8 @@ import CheckboxButton from './CheckboxButton.molecule'
 
 const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'back' }) => {
   const theme = useTheme(),
+    sound = useGameConfig(({ sound }) => sound),
+    toggleSound = useGameConfig(({ controls: { toggleSound } }) => toggleSound),
     nav = useNavigate(),
     btnSizes = 'h-[40px] w-[120px] sm:w-[150px] sm:h-[50px] lg:h-[74px] lg:w-[192px]',
     labelSizes =
@@ -17,6 +20,8 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
   return (
     <div className="flex flex-row justify-between">
       <CheckboxButton
+        initialChecked={sound}
+        onChange={toggleSound}
         label="Sound"
         tickColor={theme.colors.hot['900']}
         className={`bg-pink ${btnSizes}`}
