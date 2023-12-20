@@ -12,9 +12,9 @@ const TranspCard = ({
   withSpiral?: boolean
 }) => {
   return (
-    <div className={`${className} border-hot-600 shadow-dope relative z-0 border-[6px]`}>
+    <div className={`${className} relative z-0 border-[6px] border-hot-600 shadow-dope`}>
       {children}
-      <div className="bg-linear-diagonal-purple-green absolute inset-0 -z-10" />
+      <div className="absolute inset-0 -z-10 bg-linear-diagonal-purple-green" />
       {withSpiral && <Spiral maxOn="w" className="-z-10" speed={3} opacity={0.15} />}
     </div>
   )

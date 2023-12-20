@@ -17,9 +17,6 @@
     }
   ],
   "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
-  "tailwindcss": {
-    "config": "./tailwind.config.js"
-  },
   "importOrder": [
     "-polyfill$",
     "^react$",

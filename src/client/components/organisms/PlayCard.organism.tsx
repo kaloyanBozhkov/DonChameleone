@@ -18,7 +18,7 @@ const PlayCard = () => {
           <Link to="/play">
             <Button
               label="Play"
-              className="bg-blue h-[66px] w-[250px] max-[370px]:h-[42px] max-[370px]:w-[160px] sm:h-[94px] sm:w-[350px] sm:max-w-[unset] lg:h-[132px] lg:w-[500px]"
+              className="h-[66px] w-[250px] bg-blue max-[370px]:h-[42px] max-[370px]:w-[160px] sm:h-[94px] sm:w-[350px] sm:max-w-[unset] lg:h-[132px] lg:w-[500px]"
               labelClassName="max-[370px]:text-[38px] max-[370px]:leading-[38px] text-[60px] sm:text-[84px] lg:text-[120px] stroked-2px sm:stroked-3px lg:stroked-5px leading-[60px] lg:leading-[120px] sm:leading-[84px]"
             />
           </Link>

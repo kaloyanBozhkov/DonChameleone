@@ -12,7 +12,7 @@ const useSwing = ({
   const [val, setVal] = useState(1)
 
   useLayoutEffect(() => {
-    let ids = [] as ReturnType<typeof setTimeout>[]
+    const ids = [] as ReturnType<typeof setTimeout>[]
     const runAnim = () => {
       const id = setTimeout(
         () => {

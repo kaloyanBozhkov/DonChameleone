@@ -42,7 +42,7 @@ export default {
         },
       },
       boxShadow: {
-        dope: `4px 4px 40px 20px rgba(0, 0, 0, 0.5)`,
+        dope: '4px 4px 40px 20px rgba(0, 0, 0, 0.5)',
       },
       backgroundImage: {
         'linear-gray': 'linear-gradient(143deg, #FFF 38.22%, #606060 156.54%)',
@@ -72,13 +72,17 @@ export default {
     },
   },
   plugins: [
+    // eslint-disable-next-line
+    // @ts-ignore
     function ({ addUtilities }) {
       const utilities = {}
 
       for (let px = 1; px < 30; px++) {
-        utilities[`.stroked-${px}px`] = {
-          textShadow: `-${px}px -${px}px 0 #000, ${px}px -${px}px 0 #000, -${px}px ${px}px 0 #000, ${px}px ${px}px 0 #000`,
-        }
+        Object.defineProperty(utilities, `.stroked-${px}px`, {
+          value: {
+            textShadow: `-${px}px -${px}px 0 #000, ${px}px -${px}px 0 #000, -${px}px ${px}px 0 #000, ${px}px ${px}px 0 #000`,
+          },
+        })
       }
 
       addUtilities(utilities, ['responsive', 'hover'])

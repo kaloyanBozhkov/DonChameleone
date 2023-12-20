@@ -25,7 +25,7 @@ export default function Button({
           {typeof label === 'string' ? <p>{label}</p> : label}
         </div>
         <div className="absolute inset-0 -z-10 flex items-start justify-end overflow-hidden">
-          <div className="bg-dots-full h-full w-full origin-right -rotate-3 scale-[1.6] bg-cover bg-right-top transition-all group-hover:scale-[1.65]" />
+          <div className="h-full w-full origin-right -rotate-3 scale-[1.6] bg-dots-full bg-cover bg-right-top transition-all group-hover:scale-[1.65]" />
         </div>
       </button>
     </ComicShadow>
