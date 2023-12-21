@@ -1,0 +1,50 @@
+const baseConfig = require("../.prettierrc.js");
+
+module.exports = {
+  ...baseConfig,
+  overrides: [
+    {
+      files: ["*.scss", "*.*.scss", "*.css", "*.*.css", "*.graphql"],
+      options: {
+        printWidth: 120,
+        singleQuote: false,
+        trailingComma: "es5",
+        tabWidth: 2,
+      },
+    },
+  ],
+  plugins: [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+  ],
+  importOrder: [
+    "-polyfill$",
+    "^react$",
+    "^@apollo/client",
+    "^server/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^routing/(.*)",
+    "^types/(.*)$",
+    "^context/(.*)$",
+    "^stores/(.*)$",
+    "^classes/(.*)$",
+    "^hooks/(.*)$",
+    "^components/atoms/(.*)$",
+    "^components/molecules/(.*)$",
+    "^components/organisms/(.*)$",
+    "^components/templates/(.*)$",
+    "^components/pages/(.*)$",
+    "^components/(.*)$",
+    "^containers/(.*)$",
+    "^@(.*)$",
+    "^services/(.*)$",
+    "^utils/(.*)$",
+    "^constants/(.*)$",
+    "^common/(.*)$",
+    "^(../)",
+    "^(./)(?!styles.module)",
+    ".scss$",
+    ".css$",
+    "./styles.module.scss",
+  ],
+};
