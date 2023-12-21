@@ -6,15 +6,19 @@ export default function Button({
   onClick,
   label,
   className,
+  wrapperClassName = '',
   labelClassName = 'stroked-2px text-[20px] text-white',
+  wrapperStyle,
 }: {
   onClick?: () => void
   label: ReactNode
   className?: string
   labelClassName?: string
+  wrapperClassName?: string
+  wrapperStyle?: Record<string, string>
 }) {
   return (
-    <ComicShadow className="select-none">
+    <ComicShadow className={`select-none ${wrapperClassName}`} style={wrapperStyle}>
       <button
         className={`relative cursor-pointer border-[4px] border-white ${className} group z-0`}
         onClick={onClick}
