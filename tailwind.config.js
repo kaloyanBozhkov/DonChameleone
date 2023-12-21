@@ -136,6 +136,17 @@ export default {
         })
       }
 
+      for (let px = 1; px < 30; px++) {
+        Object.defineProperty(utilities, `.stroked-white-${px}px`, {
+          value: {
+            textShadow: `-${px}px -${px}px 0 #FFF, ${px}px -${px}px 0 #FFF, -${px}px ${px}px 0 #FFF, ${px}px ${px}px 0 #FFF`,
+          },
+          writable: true,
+          enumerable: true,
+          configurable: true,
+        })
+      }
+
       addUtilities(utilities, ['responsive', 'hover'])
     },
   ],
