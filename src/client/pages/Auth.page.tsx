@@ -27,8 +27,8 @@ export default function AuthPage() {
     <ComicPage>
       <AppLayout header={<HeaderControls />}>
         <Center className="mt-[50px] sm:mt-0">
-          <Stack>
-            <Group className="gap-[4px] font-don text-[37.6px] stroked-1px max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
+          <Stack className="gap-[15px]">
+            <Group className="stroked-1px sm:stroked-2px lg:stroked-3px gap-[4px] font-don text-[37.6px] max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] lg:gap-[15px] lg:text-[60px]">
               <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
                 Sign
               </p>
@@ -43,7 +43,7 @@ export default function AuthPage() {
               <Stack className="gap-[20px] lg:gap-[35px]">
                 <Button
                   label={
-                    <Group className="gap-[30px]">
+                    <Group className="gap-[15px] sm:gap-[30px]">
                       <img
                         src={require('@/../../public/assets/icons/google.png')}
                         className="h-[40px] w-[auto] sm:h-[56px]"
@@ -56,7 +56,7 @@ export default function AuthPage() {
                 />
                 <Button
                   label={
-                    <Group className="gap-[30px]">
+                    <Group className="gap-[15px] sm:gap-[30px]">
                       <img
                         src={require('@/../../public/assets/icons/fb.png')}
                         className="h-[40px] w-[auto] sm:h-[56px]"
@@ -79,12 +79,12 @@ export default function AuthPage() {
                     error={signInForm.errors?.email}
                   />
                   <Button
-                    onClick={() => {
+                    onClick={async () => {
                       const { hasErrors } = signInForm.validate()
 
                       if (hasErrors) return
 
-                      // proceed with auth
+                      // auth flow
                     }}
                     label="Sign in"
                     className={`bg-purple ${btn}`}
