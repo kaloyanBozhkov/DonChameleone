@@ -6,10 +6,12 @@ const ComicPage = ({
   children,
   className,
   variant = 'default',
+  withoutDon = false,
 }: {
   children: ReactNode
   className?: string
   variant?: 'bw' | 'default'
+  withoutDon?: boolean
 }) => {
   const { pageBg, overlay, dots, don } = (() => {
     switch (variant) {
@@ -17,11 +19,11 @@ const ComicPage = ({
         return {
           pageBg: 'bg-main-2 opacity-30',
           overlay: 'bg-white opacity-10',
-          dots: 'bg-dots-full',
-          don: (
+          dots: 'bg-dots-full opacity-50',
+          don: !withoutDon && (
             <Don
               don={DonColors.BW}
-              className="absolute bottom-[-10px] left-[70px] z-[-11] h-[70vh] w-[auto] max-w-[unset] opacity-75"
+              className="absolute bottom-[-10px] left-[70px] z-[-11] h-[70vh] w-[auto] max-w-[unset] translate-y-[100%] animate-[slide-top_1000ms_ease-in-out_forwards_500ms] opacity-75"
             />
           ),
         }

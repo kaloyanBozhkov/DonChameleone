@@ -55,6 +55,7 @@ export default {
         'main-2': 'url("/public/assets/img/bg-car-colored.png")',
         'dots-full': 'url("/public/assets/img/bg-dots-full.png")',
         'dots-radial': 'url("/public/assets/img/bg-dots-radial.png")',
+        'dots-cool': 'url("/public/assets/img/bg-dots-cool.png")',
         'spiral-effect': 'url("/public/assets/img/bg-spiral-effect.png")',
         'linear-bg-overlay':
           'linear-gradient(270deg, rgba(90, 0, 133, 0.30) 13.37%, rgba(1, 157, 167, 0.30) 41.84%, rgba(1, 157, 167, 0.30) 59.44%, rgba(1, 18, 167, 0.30) 88.98%)',
@@ -65,6 +66,10 @@ export default {
         'slide-top': {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' },
+        },
+        'slide-in-opacity': {
+          '0%': { transform: 'translateY(100%)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
         },
         'pop-in': {
           '0%': { transform: 'scale(0)' },
