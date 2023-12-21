@@ -42,12 +42,12 @@ export default function RulesPage({ rules }: { rules: Rules }) {
 
   const headingTitle = (
     <Stack className="gap-0">
-      <Group className="stroked-2px sm:stroked-3px gap-[30px] font-don text-[40px] text-white sm:text-[60px]">
+      <Group className="gap-[30px] font-don text-[40px] text-white stroked-2px sm:text-[60px] sm:stroked-3px">
         <p className="-mt-[40px] scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms]">Don</p>
         <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms]">Chameleone</p>
       </Group>
       <Group
-        className={`stroked-3px -mt-[20px] sm:-mt-[30px] ${wGap} font-don text-[61px] sm:text-[92px]`}
+        className={`-mt-[20px] stroked-3px sm:-mt-[30px] ${wGap} font-don text-[61px] sm:text-[92px]`}
       >
         <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_1000ms] text-hot-500">
           {w1}
@@ -72,7 +72,7 @@ export default function RulesPage({ rules }: { rules: Rules }) {
                 style={{ animationDelay: `${idx * 300}ms` }}
               >
                 <TextCard bg={idx % 2 ? 'red' : 'blue'} className="h-full w-full">
-                  <Stack className="stroked-2px md:stroked-3px h-full !items-start !justify-start gap-1 overflow-auto px-3 py-1 text-white sm:gap-4">
+                  <Stack className="h-full !items-start !justify-start gap-1 overflow-auto px-3 py-1 text-white stroked-2px sm:gap-4 md:stroked-3px">
                     <p className="font-don text-[33px] sm:text-[50px]">
                       {idx + 1}. {rule.title}
                     </p>

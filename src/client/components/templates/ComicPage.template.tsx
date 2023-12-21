@@ -46,12 +46,12 @@ const ComicPage = ({
         <div className="absolute inset-0 -z-10">
           <div className="relative h-full w-full overflow-hidden">
             <div
-              className={`animate-sexy-pops absolute inset-0 -z-[5] ${dots} bg-cover bg-center`}
+              className={`absolute inset-0 -z-[5] animate-sexy-pops ${dots} bg-cover bg-center`}
             />
             <div className={`absolute inset-0 -z-[8] ${overlay}`} />
             {don}
             <div
-              className={`bg-no-cover animate-sexy-pops absolute inset-0 -z-20 ${pageBg} bg-cover bg-center`}
+              className={`bg-no-cover absolute inset-0 -z-20 animate-sexy-pops ${pageBg} bg-cover bg-center`}
               style={{ animationDuration: '12000ms' }}
             />
           </div>

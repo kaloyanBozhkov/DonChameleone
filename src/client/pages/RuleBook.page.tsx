@@ -22,7 +22,7 @@ export default function RuleBookPage() {
         <Center className="sm:-mt-[25px]">
           <Stack className="gap-[15px] sm:gap-[25px]">
             <div className="relative -mb-[30px] w-[400px] max-[370px]:w-[250px] sm:w-[550px] lg:w-[718px]">
-              <Group className="stroked-1px sm:stroked-2px lg:stroked-3px absolute right-[11.2%] top-[15.3%] -rotate-3 gap-[4px]  font-don text-[37.6px] max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] lg:gap-[15px] lg:text-[60px]">
+              <Group className="absolute right-[11.2%] top-[15.3%] -rotate-3 gap-[4px] font-don text-[37.6px] stroked-1px  max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
                 <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
                   Rule
                 </p>
