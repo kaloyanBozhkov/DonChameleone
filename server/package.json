@@ -11,7 +11,7 @@
     "eslint_fix": "eslint --fix",
     "prettier_fix": "prettier --write 'src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
     "fix_all": "npm run prettier_fix && npm run eslint_fix",
-    "postinstall": "prisma generate --schema=../prisma/schema.prisma",
+    "postinstall": "prisma generate --schema=./prisma/schema.prisma",
     "start": "node ../dist/server/bundle.js"
   },
   "dependencies": {

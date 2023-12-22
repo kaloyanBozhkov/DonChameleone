@@ -1,0 +1,14 @@
+datasource db {
+    provider     = "mysql"
+    url          = env("DATABASE_URL_PRIVATE")
+    relationMode = "prisma"
+}
+
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+model User {
+    id String @id
+}
