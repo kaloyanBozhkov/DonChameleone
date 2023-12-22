@@ -2,7 +2,7 @@
   "name": "don-chameleone-client",
   "scripts": {
     "dev": "tsc ./src/env.ts && node ./src/env.js && webpack-dev-server --open",
-    "build": "webpack",
+    "build": "tsc ./src/env.ts && node ./src/env.js && webpack",
     "eslint_check": "eslint './src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx}'",
     "type_watch": "tsc --project . --watch",
     "type_check": "tsc --project .",
@@ -10,7 +10,8 @@
     "check_all": "bun run prettier_check && bun run eslint_check && bun run type_check",
     "eslint_fix": "eslint --fix",
     "prettier_fix": "prettier --write 'src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
-    "fix_all": "bun run prettier_fix && bun run eslint_fix"
+    "fix_all": "bun run prettier_fix && bun run eslint_fix",
+    "build:render": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
@@ -24,7 +25,6 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "babel-loader": "^9.1.3",
-    "bun": "^1.0.19",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.55.0",
     "eslint-plugin-react": "^7.33.2",

@@ -1,7 +1,7 @@
 {
   "name": "don-chameleone-server",
   "scripts": {
-    "build": "webpack",
+    "build": "tsc ./src/env.ts && node ./src/env.js && webpack",
     "copy:modules": "node deploy.js",
     "prebuild": "bun postinstall && bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
@@ -13,7 +13,9 @@
     "eslint_fix": "eslint --fix",
     "prettier_fix": "prettier --write 'src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
     "fix_all": "bun run prettier_fix && bun run eslint_fix",
-    "postinstall": "prisma generate --schema=../prisma/schema.prisma"
+    "postinstall": "prisma generate --schema=../prisma/schema.prisma",
+    "prebuild:render": "npm run copy:modules",
+    "build:render": "webpack"
   },
   "dependencies": {
     "@prisma/client": "^5.7.1",
@@ -32,7 +34,6 @@
     "@types/express": "^4.17.21",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "bun": "^1.0.19",
     "copy-node-modules": "^1.1.1",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.56.0",
