@@ -1,6 +1,5 @@
 - type: web
-  name: don-chameleone
-  env: docker
-  repo: https://github.com/kaloyanBozhkov/DonChameleone
+  runtime: docker
   plan: starter
   autoDeploy: true
+  dockerfilePath: ./Dockerfile
