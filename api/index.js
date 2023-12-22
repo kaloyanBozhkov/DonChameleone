@@ -1,2 +1,2 @@
-import app from '../server/src/index'
+import app from '../dist/server/index'
 export default app
