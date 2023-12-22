@@ -1,0 +1,6 @@
+- type: web
+  name: don-chameleone
+  env: docker
+  repo: https://github.com/kaloyanBozhkov/DonChameleone
+  plan: starter
+  autoDeploy: true
