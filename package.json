@@ -14,11 +14,9 @@
     "build:client": "cd client && bun run build",
     "check:all": "cd client && bun check_all && cd ../server && bun check_all",
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
-    "preinstall": "bun run setup",
-    "render:start": "node ./dist/server/index.js"
+    "preinstall": "bun run setup"
   },
   "devDependencies": {
     "prisma": "5.7.1"
-  },
-  "type": "module"
+  }
 }
