@@ -3,7 +3,7 @@
   "scripts": {
     "build": "tsc ./src/env.ts && node ./src/env.js && webpack",
     "copy:modules": "node deploy.js",
-    "postbuild": "bun copy:modules",
+    "prebuild": "bun postinstall && bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
     "eslint_check": "eslint './src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx}'",
     "type_watch": "tsc --project . --watch",
@@ -33,14 +33,17 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "copy-node-modules": "^1.1.1",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
+    "serverless-webpack": "^5.13.0",
     "ts-loader": "^9.5.1",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }
