@@ -3,10 +3,10 @@ import path from 'path'
 
 const appServeRouter = express.Router()
 
-appServeRouter.use(express.static(path.join(__dirname, '/../../../../dist/client')))
+appServeRouter.use(express.static(path.join(process.cwd(), '/../../../../dist/client')))
 
 appServeRouter.get('/', (_, res) => {
-  res.sendFile(path.join(__dirname, '/../../../../dist/client/index.html'))
+  res.sendFile(path.join(process.cwd(), '/../../../../dist/client/index.html'))
 })
 
 export default appServeRouter
