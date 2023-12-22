@@ -9,6 +9,7 @@
     "dev:both": "concurrently \"bun dev:client\" \"bun dev:server\"",
     "dev:client": "cd client && bun dev",
     "dev:server": "cd server && bun dev",
+    "vercel:build:both": "echo no need to build a ts express api for vercel && bun build:client",
     "build:both": "cd server && bun run build && cd ../client && bun run build",
     "build:server": "cd server && bun run build",
     "build:client": "cd client && bun run build",
