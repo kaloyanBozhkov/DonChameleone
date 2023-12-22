@@ -19,7 +19,7 @@ services:
     branch: master
     runtime: node
     buildCommand: cd server; npm i; npm run build
-    startCommand: node ./dist/server/index.js
+    startCommand: node ./dist/server/bundle.js
     buildFilter:
       paths:
         - server/**/*
