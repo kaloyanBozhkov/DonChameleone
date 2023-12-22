@@ -2,4 +2,4 @@ services:
   - type: web
     name: webdis
     runtime: docker
-    plan: hobby
+    plan: free
