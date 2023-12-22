@@ -12,11 +12,12 @@ app.use(json())
 
 app.use('/', appServeRouter)
 
+app.use('/hello', (_, res) => res.send('ok'))
+
 app.use('/api/trpc', trpcRouter)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}!`)
 })
 
-// export for deployment
 export default app
