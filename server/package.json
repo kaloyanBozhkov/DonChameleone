@@ -2,6 +2,8 @@
   "name": "don-chameleone-server",
   "scripts": {
     "build": "tsc ./src/env.ts && node ./src/env.js && webpack",
+    "copy:modules": "node deploy.js",
+    "postbuild": "bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
     "eslint_check": "eslint './src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx}'",
     "type_watch": "tsc --project . --watch",
