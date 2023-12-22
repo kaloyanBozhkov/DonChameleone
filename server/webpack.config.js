@@ -1,8 +1,5 @@
 const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const webpackNodeExternals = require('webpack-node-externals')
-console.log(path.resolve(__dirname, '../dist/server/node_modules'))
 
 module.exports = {
   target: 'node', // in order to ignore built-in modules like path, fs, etc.
