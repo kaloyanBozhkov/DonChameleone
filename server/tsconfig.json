@@ -10,5 +10,6 @@
     "outDir": "../dist/server"
   },
   "include": ["."],
+  "exclude": ["index.js", "deploy.js"],
   "extends": "../tsconfig.json"
 }
