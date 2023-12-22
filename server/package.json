@@ -1,7 +1,9 @@
 {
   "name": "don-chameleone-server",
   "scripts": {
-    "build": "tsc ./src/env.ts && node ./src/env.js && tsc",
+    "build": "tsc ./src/env.ts && node ./src/env.js && tsc  -p tsconfig.json && tsc-alias  -p tsconfig.json",
+    "copy:modules": "node deploy.js",
+    "prebuild": "bun postinstall && bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
     "eslint_check": "eslint './src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx}'",
     "type_watch": "tsc --project . --watch",

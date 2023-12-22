@@ -10,6 +10,6 @@
     "outDir": "../dist/server"
   },
   "include": ["."],
-  "exclude": ["index.js", "deploy.js"],
+  "exclude": ["index.js", "deploy.js", "./netlify"],
   "extends": "../tsconfig.json"
 }
