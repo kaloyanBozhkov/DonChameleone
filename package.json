@@ -14,7 +14,7 @@
     "build:client": "cd client && bun run build",
     "check:all": "cd client && bun check_all && cd ../server && bun check_all",
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
-    "postinstall": "bun setup"
+    "postinstall": "echo ok gonna do it && bun setup"
   },
   "devDependencies": {
     "prisma": "5.7.1",
