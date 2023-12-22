@@ -11,6 +11,6 @@
       "-/*": ["./*"]
     }
   },
-  "include": ["./prisma", "./common", "./api"],
+  "include": ["./prisma", "./common"],
   "exclude": ["./server/node_modules", "./client/node_modules", "node_modules"]
 }
