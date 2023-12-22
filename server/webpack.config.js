@@ -2,14 +2,13 @@ const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
+  target: 'node',
   mode: 'production',
-  entry: './src/index.ts', // Update with your TypeScript entry file
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, '../dist/server'),
     filename: 'bundle.js',
-    publicPath: '/',
   },
-  target: 'node',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],

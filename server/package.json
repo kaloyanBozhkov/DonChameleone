@@ -16,7 +16,6 @@
   "dependencies": {
     "@prisma/client": "^5.7.1",
     "@trpc/server": "^10.44.1",
-    "copy-node-modules": "^1.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
