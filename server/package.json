@@ -1,7 +1,7 @@
 {
   "name": "don-chameleone-server",
   "scripts": {
-    "build": "tsc ./src/env.ts && node ./src/env.js && tsc",
+    "build": "webpack",
     "copy:modules": "node deploy.js",
     "prebuild": "bun postinstall && bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
