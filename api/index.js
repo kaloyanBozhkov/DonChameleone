@@ -1,2 +1,2 @@
-const app = require('../dist/server/index')
+const app = require('../server/index')
 module.exports = app
