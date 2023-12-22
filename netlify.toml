@@ -1,6 +1,5 @@
 [functions]
-  node_bundler = "esbuild"
-  included_files = ["./server/node_modules/*"]
+  node_bundler = "zisi"
 [[redirects]]
   force = true
   from = "/api/*"
