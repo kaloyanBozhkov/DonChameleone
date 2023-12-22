@@ -1,0 +1,29 @@
+services:
+  # FE
+  - type: web
+    name: don-chameleone-fe
+    branch: main
+    runtime: static
+    buildCommand: cd client; npm i; npm run build
+    staticPublishPath: ./dist/client
+    buildFilter:
+      paths:
+        - client/**/*
+        - common/**/*
+        - public/**/*
+      ignoredPaths:
+        - server/**/*
+  # BE
+  - type: web
+    name: don-chameleone-be
+    branch: main
+    runtime: node
+    buildCommand: cd server; npm i; npm run build
+    startCommand: node ./dist/server/index.js
+    buildFilter:
+      paths:
+        - server/**/*
+        - common/**/*
+        - public/**/*
+      ignoredPaths:
+        - client/**/*
