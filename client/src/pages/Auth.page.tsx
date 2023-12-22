@@ -7,6 +7,7 @@ import Stack from '@/components/layouts/Stack.layout'
 import HeaderControls from '@/components/molecules/HeaderControls.molecule'
 import TranspCard from '@/components/molecules/TranspCard.molecule'
 import ComicPage from '@/components/templates/ComicPage.template'
+import { trpc } from '@/utils/trpc'
 import { isEmail, useForm } from '@mantine/form'
 
 export default function AuthPage() {
@@ -21,7 +22,8 @@ export default function AuthPage() {
       validate: {
         email: isEmail('Invalid email'),
       },
-    })
+    }),
+    { refetch } = trpc.auth.signIn.useQuery({ prompt: 'id_bilbo' }, { enabled: false })
 
   return (
     <ComicPage>
@@ -85,6 +87,7 @@ export default function AuthPage() {
                       if (hasErrors) return
 
                       // auth flow
+                      refetch()
                     }}
                     label="Sign in"
                     className={`bg-purple ${btn}`}

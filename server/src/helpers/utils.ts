@@ -1,6 +1,7 @@
 import { Response } from 'express'
 import SuperJSON from 'superjson'
 import { ZodError } from 'zod'
+import env from '~/env'
 
 export const geenricHandler = async <T>(
   res: Response,
@@ -22,4 +23,13 @@ export const geenricHandler = async <T>(
     }
     res.status(400).json({ message }).end()
   }
+}
+
+export const getBaseUrl = () => {
+  if (env.VERCEL_ENV !== 'development')
+    return env.SERVER_DOMAIN_PUBLIC.includes('http')
+      ? env.SERVER_DOMAIN_PUBLIC
+      : `https://${env.SERVER_DOMAIN_PUBLIC}`
+
+  return `http://localhost:${env.SERVER_PORT_BE ?? 3000}`
 }

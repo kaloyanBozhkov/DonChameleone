@@ -3,7 +3,6 @@
     "lib": ["es2023"],
     "module": "ESNext",
     "target": "ESNext",
-    "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Bundler",
