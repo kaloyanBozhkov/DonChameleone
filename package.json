@@ -15,7 +15,7 @@
     "check:all": "cd client && bun check_all && cd ../server && bun check_all",
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
     "preinstall": "bun run setup",
-    "postinstall": "bun build:both"
+    "render:start": "node ./dist/server/index.js"
   },
   "devDependencies": {
     "prisma": "5.7.1"
