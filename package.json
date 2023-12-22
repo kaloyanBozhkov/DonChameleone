@@ -5,7 +5,7 @@
     "concurrently": "^8.2.2"
   },
   "scripts": {
-    "setup": "cd client && bun i && cd ../server && bun i",
+    "setup": "cd client && bun i && cd ../server && bun i && cd ../",
     "dev:both": "concurrently \"bun dev:client\" \"bun dev:server\"",
     "dev:client": "cd client && bun dev",
     "dev:server": "cd server && bun dev",
@@ -14,10 +14,9 @@
     "build:client": "cd client && bun run build",
     "check:all": "cd client && bun check_all && cd ../server && bun check_all",
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
-    "postinstall": "echo ok gonna do it && bun setup"
+    "preinstall": "bun run setup"
   },
   "devDependencies": {
-    "prisma": "5.7.1",
-    "serverless-http": "^3.2.0"
+    "prisma": "5.7.1"
   }
 }
