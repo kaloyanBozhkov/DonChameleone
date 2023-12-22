@@ -12,9 +12,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
-    alias: {
-      '-': path.resolve(__dirname),
-    },
   },
   module: {
     rules: [
