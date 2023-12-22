@@ -1,7 +1,7 @@
 {
   "name": "don-chameleone-server",
   "scripts": {
-    "build": "tsc ./src/env.ts && node ./src/env.js && tsc",
+    "build": "tsc ./src/env.ts && node ./src/env.js && tsc && tsc-alias",
     "copy:modules": "node deploy.js",
     "postbuild": "bun copy:modules",
     "dev": "tsc ./src/env.ts && node ./src/env.js && tsx --watch ./src/index.ts",
@@ -35,6 +35,7 @@
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
+    "tsc-alias": "^1.8.8",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   }
