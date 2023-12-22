@@ -1,4 +1,5 @@
 [functions]
+  external_node_modules = ["express", "@trpc/server", "cors", "dotenv", "superjson", "trpc-panel", "zod", "prisma", "@prisma/client"]
   node_bundler = "esbuild"
   included_files = ["./server/node_modules/**"]
 
