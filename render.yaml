@@ -1,4 +1,5 @@
-- type: web
+services:
+  - type: web
   runtime: docker
   plan: starter
   autoDeploy: true
