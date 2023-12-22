@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Bundler",
     "types": ["node"],
-    "outDir": "../api"
+    "outDir": "../dist/server"
   },
   "include": ["."],
   "extends": "../tsconfig.json"

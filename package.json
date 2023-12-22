@@ -1,6 +1,5 @@
 {
   "name": "don-chameleone",
-  "type": "module",
   "dependencies": {
     "@prisma/client": "5.7.1",
     "concurrently": "^8.2.2"
@@ -18,6 +17,7 @@
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all"
   },
   "devDependencies": {
-    "prisma": "5.7.1"
+    "prisma": "5.7.1",
+    "serverless-http": "^3.2.0"
   }
 }
