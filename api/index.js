@@ -1,2 +1,2 @@
-const app = require('../server/index')
-module.exports = app
+import app from '../server/index'
+export default app
