@@ -1,5 +1,6 @@
 [functions]
   node_bundler = "zisi"
+  included_files = ["./server/node_modules/**"]
 [[redirects]]
   force = true
   from = "/api/*"
