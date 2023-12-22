@@ -1,5 +1,6 @@
 {
   "name": "don-chameleone",
+  "type": "module",
   "dependencies": {
     "@prisma/client": "5.7.1",
     "concurrently": "^8.2.2"
