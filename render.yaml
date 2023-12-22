@@ -1,5 +1,0 @@
-services:
-  - type: web
-    name: webdis
-    runtime: docker
-    plan: free
