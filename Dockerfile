@@ -10,4 +10,4 @@ COPY . .
 ENV NODE_ENV production
 ENV VERCEL_ENV production
 
-CMD [ "bun", "start" ]
+CMD [ "bun", "./dist/server/bundle.js" ]

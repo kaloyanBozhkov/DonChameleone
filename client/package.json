@@ -10,7 +10,7 @@
     "check_all": "bun run prettier_check && bun run eslint_check && bun run type_check",
     "eslint_fix": "eslint --fix",
     "prettier_fix": "prettier --write 'src/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
-    "fix_all": "bun run prettier_fix && bun run eslint_fix",
+    "fix_all": "bun run prettier_fix && bun run eslint_fix"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
