@@ -5,16 +5,16 @@
     "concurrently": "^8.2.2"
   },
   "scripts": {
-    "setup": "cd client && bun i && cd ../server && bun i && cd ../",
-    "dev:both": "concurrently \"bun dev:client\" \"bun dev:server\"",
-    "dev:client": "cd client && bun dev",
-    "dev:server": "cd server && bun dev",
-    "build:both": "cd server && bun run build && cd ../client && bun run build",
-    "build:server": "cd server && bun run build",
-    "build:client": "cd client && bun run build",
-    "check:all": "cd client && bun check_all && cd ../server && bun check_all",
-    "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
-    "preinstall": "bun setup"
+    "setup": "cd client && npm i && cd ../server && npm i && cd ../",
+    "dev:both": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build:both": "cd server && npm run build && cd ../client && npm run build",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "check:all": "cd client && npm run check_all && cd ../server && npm run check_all",
+    "fix:all": "cd client && npm run fix_all && cd ../server && npm run fix_all",
+    "preinstall": "npm run setup"
   },
   "devDependencies": {
     "@vercel/node": "^3.0.14",
