@@ -15,6 +15,7 @@
     "check:all": "cd client && bun check_all && cd ../server && bun check_all",
     "fix:all": "cd client && bun fix_all && cd ../server && bun fix_all",
     "preinstall": "bun setup",
+    "postsetup": "bun build:both",
     "start": "bun ./dist/server/index.js"
   },
   "devDependencies": {
