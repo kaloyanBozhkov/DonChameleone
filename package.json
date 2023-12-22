@@ -18,6 +18,7 @@
     "start": "bun ./dist/server/index.js"
   },
   "devDependencies": {
-    "prisma": "5.7.1"
+    "prisma": "5.7.1",
+    "serverless-http": "^3.2.0"
   }
 }
