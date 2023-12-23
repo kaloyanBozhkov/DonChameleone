@@ -8,7 +8,7 @@ export default function Home() {
         <meta name="description" content="Social game of the year!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p>ok</p>
+      <iframe src="/index.html" className="h-full w-full" />
     </>
   )
 }
