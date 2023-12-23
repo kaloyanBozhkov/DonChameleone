@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
@@ -57,7 +58,11 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: '../public/assets', to: './assets' }],
+      patterns: [{ from: './public/assets', to: './assets' }],
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: process.env.VERCEL_ENV === 'production' ? 'don-game.html' : 'index.html',
     }),
     (() => {
       // only for local set up the env
@@ -83,4 +88,11 @@ module.exports = {
       })
     })(),
   ],
+  // devServer: {
+  //   static: {
+  //     directory: path.join(__dirname, '/public'),
+  //     publicPath: '/',
+  //   },
+  //   port: 8080,
+  // },
 }

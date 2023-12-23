@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cd client && bun run build && cd .. && next build",
+    "build": "next build",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "dev": "next dev",
-    "postinstall": "prisma generate && cd client && bun i",
+    "postinstall": "prisma generate && cd client && bun i && bun run build",
     "lint": "next lint --dir src/",
     "lint:client": "next lint --dir client/src/",
     "lint:fix": "next lint --fix --dir src/ --dir client/src/",

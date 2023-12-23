@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import { env } from '@/env'
+
 export default function Home() {
   return (
     <>
@@ -8,7 +10,14 @@ export default function Home() {
         <meta name="description" content="Social game of the year!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <iframe src="/don-game.html" className="h-full w-full" />
+      <iframe
+        src={
+          env.NEXT_PUBLIC_VERCEL_ENV === 'development'
+            ? 'http://localhost:8080'
+            : '/dist/client/don-game.html'
+        }
+        className="h-full w-full"
+      />
     </>
   )
 }
