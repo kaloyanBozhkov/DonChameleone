@@ -4,7 +4,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 
-const env = require('dotenv').config({ path: '../.env' })
+const env = require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 console.log('env', env)
 const removePrivateVars = (env) =>
   Object.keys(env).reduce(
