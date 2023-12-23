@@ -24,7 +24,6 @@
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
-    "html-webpack-plugin": "^5.5.4",
     "postcss": "^8.4.32",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.3.0",
