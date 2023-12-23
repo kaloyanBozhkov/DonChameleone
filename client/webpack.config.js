@@ -4,19 +4,6 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 
-const env = require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
-console.log('process.env', process.env)
-console.log('env', path.resolve(__dirname, '../.env'), env)
-
-const removePrivateVars = (env) =>
-  Object.keys(env).reduce(
-    (acc, key) => ({
-      ...acc,
-      ...(key.includes('PUBLIC') ? { [key]: env[key] } : {}),
-    }),
-    {}
-  )
-
 module.exports = {
   devtool: process.env.VERCEL_ENV === 'production' ? false : 'source-map',
   mode: process.env.VERCEL_ENV === 'production' ? 'production' : 'development',
@@ -76,8 +63,28 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: '../public/assets', to: './assets' }],
     }),
-    new DefinePlugin({
-      'process.env': JSON.stringify(removePrivateVars(env)),
-    }),
+    ...(() => {
+      // Vercel injects env automatically
+      if (process.env.VERCEL_ENV !== 'development') return []
+
+      // only for local set up the env
+      const env = require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+
+      // kinda useless if just for local :D
+      const removePrivateVars = (env) =>
+        Object.keys(env).reduce(
+          (acc, key) => ({
+            ...acc,
+            ...(key.includes('PUBLIC') ? { [key]: env[key] } : {}),
+          }),
+          {}
+        )
+
+      return [
+        new DefinePlugin({
+          'process.env': JSON.stringify(removePrivateVars(env)),
+        }),
+      ]
+    })(),
   ],
 }
