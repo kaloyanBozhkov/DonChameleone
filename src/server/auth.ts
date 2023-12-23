@@ -2,7 +2,9 @@ import { prisma } from '@/server/prisma'
 
 import { type GetServerSidePropsContext } from 'next'
 import { type DefaultSession, type NextAuthOptions, getServerSession } from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
 
+import { env } from '@/env'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 
 /**
@@ -52,6 +54,10 @@ export const authOptions: NextAuthOptions = {
      *
      * @see https://next-auth.js.org/providers/github
      */
+    GoogleProvider({
+      clientId: env.OAUTH_GOOGLE_CLIENT_ID,
+      clientSecret: env.OAUTH_GOOGLE_CLIENT_SECRET,
+    }),
   ],
 }
 

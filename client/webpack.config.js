@@ -59,28 +59,28 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: '../public/assets', to: './assets' }],
     }),
-    ...(() => {
-      // Vercel injects env automatically
-      if (process.env.VERCEL_ENV !== 'development') return []
-
+    (() => {
       // only for local set up the env
-      const env = require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+      const env =
+          process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'development'
+            ? process.env
+            : require('dotenv').config({ path: path.resolve(__dirname, '../.env') }).parsed,
+        whitelist = ['VERCEL_ENV'],
+        // kinda useless if just for local :D
+        removePrivateVars = (env) =>
+          Object.keys(env).reduce(
+            (acc, key) => ({
+              ...acc,
+              ...(key.includes('NEXT_PUBLIC') || whitelist.includes(key)
+                ? { [key]: env[key] }
+                : {}),
+            }),
+            {}
+          )
 
-      // kinda useless if just for local :D
-      const removePrivateVars = (env) =>
-        Object.keys(env).reduce(
-          (acc, key) => ({
-            ...acc,
-            ...(key.includes('PUBLIC') ? { [key]: env[key] } : {}),
-          }),
-          {}
-        )
-
-      return [
-        new DefinePlugin({
-          'process.env': JSON.stringify(removePrivateVars(env)),
-        }),
-      ]
+      return new DefinePlugin({
+        'process.env': JSON.stringify(removePrivateVars(env)),
+      })
     })(),
   ],
 }
