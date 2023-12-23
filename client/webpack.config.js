@@ -10,8 +10,8 @@ module.exports = {
   // the app entry point is /src/index.js
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
-    // the output of the webpack build will be in /dist/client directory
-    path: path.resolve(__dirname, './../dist/client'),
+    // the output of the webpack build will be in /public/dist/client directory
+    path: path.resolve(__dirname, './../public/dist/client'),
     // the filename of the JS bundle will be bundle.js
     filename: 'bundle.js',
   },
