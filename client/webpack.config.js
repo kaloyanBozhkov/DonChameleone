@@ -62,6 +62,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      // make localhost:8080 load desired html instantly
       filename: process.env.VERCEL_ENV === 'production' ? 'don-game.html' : 'index.html',
     }),
     (() => {
@@ -88,11 +89,4 @@ module.exports = {
       })
     })(),
   ],
-  // devServer: {
-  //   static: {
-  //     directory: path.join(__dirname, '/public'),
-  //     publicPath: '/',
-  //   },
-  //   port: 8080,
-  // },
 }
