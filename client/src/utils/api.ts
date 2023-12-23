@@ -11,7 +11,7 @@ export const trpc = createTRPCReact<AppRouter>({ abortOnUnmount: true })
 export const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: `${env.SERVER_DOMAIN_PUBLIC}/api/trpc`,
+      url: `${env.SERVER_NEXT_PUBLIC_DOMAIN}/api/trpc`,
       async headers() {
         return {
           //   authorization: getAuthCookie(),

@@ -4,7 +4,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 
-require('dotenv').config({ path: '../.env' })
+const env = require('dotenv').config({ path: '../.env' })
 
 const removePrivateVars = (env) =>
   Object.keys(env).reduce(
@@ -75,7 +75,7 @@ module.exports = {
       patterns: [{ from: '../public/assets', to: './assets' }],
     }),
     new DefinePlugin({
-      'process.env': JSON.stringify(removePrivateVars(process.env)),
+      'process.env': JSON.stringify(removePrivateVars(env.parsed)),
     }),
   ],
 }
