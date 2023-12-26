@@ -30,6 +30,7 @@ const CheckboxButton = ({
 
   return (
     <Button
+      withDots={false}
       onClick={onBtnClick}
       label={
         <Group className="gap-[6px]">

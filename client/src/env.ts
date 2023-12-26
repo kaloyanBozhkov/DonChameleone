@@ -9,7 +9,7 @@ const envFESchema = z.object({
 const env = envFESchema.parse({
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
   NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
-  VERCEL_ENV: process.env.VEREL_ENV,
+  VERCEL_ENV: process.env.VERCEL_ENV,
 })
 
 export default env

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import useGameConfig from '@/store/useGameConfig'
 import useTheme from '@/store/useTheme'
@@ -9,7 +9,8 @@ import Group from '../layouts/Group.layout'
 import CheckboxButton from './CheckboxButton.molecule'
 
 const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'back' }) => {
-  const theme = useTheme(),
+  const loc = useLocation(),
+    theme = useTheme(),
     sound = useGameConfig(({ sound }) => sound),
     toggleSound = useGameConfig(({ controls: { toggleSound } }) => toggleSound),
     nav = useNavigate(),
@@ -30,6 +31,7 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
       {rightAction === 'rules' && (
         <Link to="/rules">
           <Button
+            withDots={false}
             label={
               <Group className="h-full w-full gap-[6px]">
                 <img
@@ -47,7 +49,8 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
       )}
       {rightAction === 'back' && (
         <Button
-          onClick={() => nav(-1)}
+          withDots={false}
+          onClick={() => nav(getBack[loc.pathname] ?? -1)}
           label={
             <Group className="h-full w-full gap-[6px]">
               <p>Back</p>
@@ -62,3 +65,13 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
 }
 
 export default HeaderControls
+
+// Keep map of prev pages based on current page, bc history can be messed up by jumping pages
+const getBack = {
+  '/auth': '/',
+  '/rules': '/',
+  '/rules/basic': '/rules',
+  '/rules/1v1': '/rules',
+  '/rules/gameplay': '/rules',
+  '/about': '/',
+}

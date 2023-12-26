@@ -24,7 +24,7 @@
       "~/*": ["../src/server/*"]
     }
   },
-  "include": ["."],
+  "include": [".", "../src/iframe/messageSystem.ts"],
   "exclude": ["./webpack.config.js"],
   "references": [{ "path": "../tsconfig.json" }]
 }

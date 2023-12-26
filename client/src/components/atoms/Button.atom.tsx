@@ -1,6 +1,8 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 import ComicShadow from '../templates/ComicShadow.template'
+
+import DotsLoader, { DotsLoaderProps } from './DotsLoader.atom'
 
 export default function Button({
   onClick,
@@ -9,6 +11,8 @@ export default function Button({
   wrapperClassName = '',
   labelClassName = 'stroked-2px text-[20px] text-white',
   wrapperStyle,
+  dotsLoaderProps,
+  withDots = true,
 }: {
   onClick?: () => void
   label: ReactNode
@@ -16,17 +20,43 @@ export default function Button({
   labelClassName?: string
   wrapperClassName?: string
   wrapperStyle?: Record<string, string>
+  withDots?: boolean
+  dotsLoaderProps?: DotsLoaderProps
 }) {
+  const [clicked, setClicked] = useState(false)
+
+  let content = label
+  if (typeof label === 'string') content = <p>{label}</p>
+  if (withDots && clicked) {
+    const bg = className?.split('bg-')[1]?.split(' ')[0]
+    content = (
+      <div className="flex w-full items-center justify-center">
+        <DotsLoader
+          bg={bg ? `bg-${bg}` : 'bg-black'}
+          {...dotsLoaderProps}
+          className={`${dotsLoaderProps?.className} scale-[1.1] sm:scale-[1.3]`}
+        />
+      </div>
+    )
+  }
+
   return (
-    <ComicShadow className={`select-none ${wrapperClassName}`} style={wrapperStyle}>
+    <ComicShadow
+      className={`select-none ${wrapperClassName} pointer-events-none`}
+      style={wrapperStyle}
+    >
       <button
-        className={`relative cursor-pointer border-[4px] border-white ${className} group z-0`}
-        onClick={onClick}
+        className={`pointer-events-auto relative cursor-pointer border-[4px] border-white ${className} group z-0`}
+        onClick={() => {
+          onClick?.()
+
+          if (withDots) setClicked(true)
+        }}
       >
         <div
           className={`font-don text-white transition-all group-hover:scale-90 ${labelClassName}`}
         >
-          {typeof label === 'string' ? <p>{label}</p> : label}
+          {content}
         </div>
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <img

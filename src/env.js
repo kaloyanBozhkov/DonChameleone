@@ -15,6 +15,7 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_VERCEL_ENV: z.string(),
+    NEXT_PUBLIC_DOMAIN: z.string(),
   },
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
@@ -24,6 +25,7 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     OAUTH_GOOGLE_CLIENT_ID: process.env.OAUTH_GOOGLE_CLIENT_ID,
     OAUTH_GOOGLE_CLIENT_SECRET: process.env.OAUTH_GOOGLE_CLIENT_SECRET,
+    NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,

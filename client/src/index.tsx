@@ -16,7 +16,7 @@ if (!rootEl) throw Error('Missing root element on page')
 
 const root = createRoot(rootEl)
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
@@ -24,5 +24,7 @@ root.render(
         </QueryClientProvider>
       </trpc.Provider>
     </ClerkProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 )
+
+

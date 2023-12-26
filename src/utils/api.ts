@@ -6,11 +6,7 @@ import { httpBatchLink, loggerLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 
-const getBaseUrl = () => {
-  if (typeof window !== 'undefined') return ''
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
-  return `http://localhost:${process.env.PORT ?? 3000}`
-}
+import { getBaseUrl } from './common'
 
 /** A set of type-safe react-query hooks for your tRPC API. */
 export const api = createTRPCNext<AppRouter>({

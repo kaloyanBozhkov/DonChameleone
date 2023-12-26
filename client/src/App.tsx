@@ -1,10 +1,11 @@
-import { useLayoutEffect } from 'react'
+import { FC, ReactNode, useLayoutEffect } from 'react'
 
 import { HashRouter, Navigate, Route } from 'react-router-dom'
 
 import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import PageTransition from './components/layouts/PageTransition.layout'
+import { iframeHandler } from './iframe/handler'
 import AboutPage from './pages/About.page'
 import AuthPage from './pages/Auth.page'
 import IndexPage from './pages/Index.page'
@@ -12,7 +13,9 @@ import RoomOptionPage from './pages/RoomOption.page'
 import RuleBookPage from './pages/RuleBook.page'
 import RulesPage from './pages/RulesPage'
 
-export default function App() {
+const App = () => {
+  useLayoutEffect(iframeHandler, [])
+
   useLayoutEffect(() => {
     // clear initial styles of empty page
     document.querySelector('body.empty')?.setAttribute('class', '')
@@ -63,3 +66,5 @@ export default function App() {
     </HashRouter>
   )
 }
+
+export default App

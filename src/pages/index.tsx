@@ -1,8 +1,14 @@
 import Head from 'next/head'
 
 import { env } from '@/env'
+import useIframeControls from '@/hooks/client/useIframeControls'
+import useLocationHash from '@/hooks/client/useLocationHash'
 
 export default function Home() {
+  const { iframeRef } = useIframeControls()
+
+  useLocationHash({ iframeRef })
+
   return (
     <>
       <Head>
@@ -11,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <iframe
+        ref={iframeRef}
         src={
           env.NEXT_PUBLIC_VERCEL_ENV === 'development'
             ? 'http://localhost:8080'

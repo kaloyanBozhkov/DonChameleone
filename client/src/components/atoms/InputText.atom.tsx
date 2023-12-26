@@ -25,7 +25,7 @@ const InputText = ({
         )}
         <div className="bg-linear-light-purple absolute inset-0 -z-10 rotate-180" />
       </div>
-      <div className="bg-linear-light-purple relative h-[72px] w-full border-[5px] border-white shadow-[-5px_5px_black]">
+      <div className="bg-linear-light-purple relative h-[62px] w-[250px] border-[5px] border-white shadow-[-5px_5px_black] max-[370px]:h-[52px] max-[370px]:w-full sm:h-[72px] sm:w-full">
         <input
           type="text"
           value={value}
@@ -33,7 +33,10 @@ const InputText = ({
           className="stroked-1px h-full w-full bg-transparent pl-[10px] pr-[53px] font-[Arial] text-[25px] font-semibold text-white outline-none"
         />
         <Center className="pointer-events-none absolute bottom-0 right-[12px] top-0 !w-[unset]">
-          <img src={require('-/public/assets/icons/edit-icon.svg')} className="h-[auto] w-[35px]" />
+          <img
+            src={require('-/public/assets/icons/edit-icon.svg')}
+            className="h-[auto] w-[25px] max-[370px]:w-[20px] sm:w-[35px]"
+          />
         </Center>
       </div>
       {error && (

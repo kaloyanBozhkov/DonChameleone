@@ -1,5 +1,9 @@
 import { type ReactNode } from 'react'
 
+import { useLocation } from 'react-router-dom'
+
+import useParentLocationSync from '@/hooks/iframe/useParentLocationSync'
+
 import Don, { DonColors } from '../molecules/Don.molecule'
 
 const ComicPage = ({
@@ -13,6 +17,9 @@ const ComicPage = ({
   variant?: 'bw' | 'default'
   withoutDon?: boolean
 }) => {
+  // @TODO move to a HOC or smth wrapping full app
+  useParentLocationSync()
+
   const { pageBg, overlay, dots, don } = (() => {
     switch (variant) {
       case 'bw':

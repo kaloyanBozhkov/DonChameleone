@@ -39,11 +39,12 @@
     ".eslintrc.cjs",
     "next-env.d.ts",
     "**/*.ts",
+    "**/*.d.ts",
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
     ".prettierrc.js"
   ],
-  "exclude": ["node_modules", "public/dist", "client"]
+  "exclude": ["node_modules", "public/dist", "client/**/*"]
 }

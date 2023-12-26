@@ -7,12 +7,13 @@ import Stack from '@/components/layouts/Stack.layout'
 import HeaderControls from '@/components/molecules/HeaderControls.molecule'
 import TranspCard from '@/components/molecules/TranspCard.molecule'
 import ComicPage from '@/components/templates/ComicPage.template'
-import { trpc } from '@/utils/api'
+import { messageSystem } from '@/iframe/messageSystem'
 import { isEmail, useForm } from '@mantine/form'
 
 export default function AuthPage() {
+  // @TODO add layout for common sizes
   const btn =
-      'max-[370px]:h-[52px] max-[370px]:w-[180px] h-[82px] h-[66px] w-[250px]  sm:w-[388px]',
+      'max-[370px]:h-[52px] max-[370px]:w-[180px] h-[62px] sm:h-[82px] h-[66px] w-[250px] sm:w-[388px]',
     label =
       'max-[370px]:text-[26px] max-[370px]:leading-[26px] sm:text-[54px] text-[40px] max-[370px]:stroked-2px stroked-3px leading-[40px]',
     signInForm = useForm({
@@ -22,8 +23,7 @@ export default function AuthPage() {
       validate: {
         email: isEmail('Invalid email'),
       },
-    }),
-    { refetch } = trpc.auth.signIn.useQuery({ prompt: 'id_bilbo' }, { enabled: false })
+    })
 
   return (
     <ComicPage>
@@ -44,6 +44,10 @@ export default function AuthPage() {
             >
               <Stack className="gap-[20px] lg:gap-[35px]">
                 <Button
+                  withDots
+                  onClick={() => {
+                    messageSystem({ action: 'signInGoogle' })
+                  }}
                   label={
                     <Group className="gap-[15px] sm:gap-[30px]">
                       <img
@@ -86,8 +90,10 @@ export default function AuthPage() {
 
                       if (hasErrors) return
 
-                      // auth flow
-                      refetch()
+                      messageSystem({
+                        action: 'signInEmail',
+                        payload: { email: signInForm.values.email },
+                      })
                     }}
                     label="Sign in"
                     className={`bg-purple ${btn}`}

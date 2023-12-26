@@ -2,9 +2,11 @@ import { prisma } from '@/server/prisma'
 
 import { type GetServerSidePropsContext } from 'next'
 import { type DefaultSession, type NextAuthOptions, getServerSession } from 'next-auth'
+import EmailProvider from 'next-auth/providers/email'
 import GoogleProvider from 'next-auth/providers/google'
 
 import { env } from '@/env'
+import sendVerificationRequest from '@/pages/api/email/sendVerificaitonRequest'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 
 /**
@@ -57,6 +59,22 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: env.OAUTH_GOOGLE_CLIENT_ID,
       clientSecret: env.OAUTH_GOOGLE_CLIENT_SECRET,
+    }),
+    EmailProvider({
+      server: {
+        secure: false,
+        tls: {
+          host: process.env.EMAIL_SERVER_TLS_HOST,
+        },
+        host: process.env.EMAIL_SERVER_HOST,
+        port: +process.env.EMAIL_SERVER_PORT!,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: `DonChameleone ${process.env.EMAIL_FROM}`,
+      sendVerificationRequest,
     }),
   ],
 }
