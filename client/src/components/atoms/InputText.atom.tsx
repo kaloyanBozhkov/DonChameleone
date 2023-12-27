@@ -30,7 +30,7 @@ const InputText = ({
           type="text"
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
-          className="stroked-1px h-full w-full bg-transparent pl-[10px] pr-[53px] font-[Arial] text-[25px] font-semibold text-white outline-none"
+          className="stroked-1px h-full w-full bg-transparent pl-[10px] pr-[53px] font-[Arial] text-[20px] font-semibold text-white outline-none sm:text-[25px]"
         />
         <Center className="pointer-events-none absolute bottom-0 right-[12px] top-0 !w-[unset]">
           <img

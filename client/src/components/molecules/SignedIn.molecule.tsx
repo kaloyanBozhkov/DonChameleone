@@ -3,7 +3,11 @@ import { ReactNode } from 'react'
 import useParentSession from '@/store/useParentSession'
 
 const SignedIn = ({ children }: { children: ReactNode }) => {
-  const signedIn = useParentSession(({ user }) => user !== null)
+  const signedIn = useParentSession(({ user }) => user !== null),
+    hydrated = useParentSession(({ hydrated }) => hydrated)
+
+  if (!hydrated) return null
+
   if (signedIn) return children
   return null
 }

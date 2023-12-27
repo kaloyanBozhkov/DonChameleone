@@ -10,6 +10,7 @@ import AboutPage from './pages/About.page'
 import AuthPage from './pages/Auth.page'
 import EmailVerifyPage from './pages/EmailVerify'
 import IndexPage from './pages/Index.page'
+import JoinRoomPage from './pages/JoinRoom.page'
 import RoomOptionPage from './pages/RoomOption.page'
 import RuleBookPage from './pages/RuleBook.page'
 import RulesPage from './pages/RulesPage'
@@ -79,15 +80,15 @@ const App = () => {
           }}
         />
         <Route
-          path="//email-verify/:email"
+          path="/join"
           Component={() => {
             return (
               <>
                 <SignedIn>
-                  <Navigate to="/play" />
+                  <JoinRoomPage />
                 </SignedIn>
                 <SignedOut>
-                  <EmailVerifyPage />
+                  <Navigate to="/auth" />
                 </SignedOut>
               </>
             )
