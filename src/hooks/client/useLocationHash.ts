@@ -2,6 +2,7 @@ import { type MutableRefObject, useEffect, useRef } from 'react'
 
 import { useRouter } from 'next/router'
 
+import { IFRAME_ORIGIN } from '@/iframe/helpers'
 import { useIframeStore } from '@/store/useIframeStore'
 
 const useLocationHash = ({
@@ -19,8 +20,7 @@ const useLocationHash = ({
     gate.current = true
     const hash = router.asPath.split('#')[1] ?? ''
     if (!hash || !iframeRef.current) return
-    const path = new URL(iframeRef.current.src)
-    iframeRef.current.src = `${path.origin}#${hash}?initial=true`
+    iframeRef.current.src = `${IFRAME_ORIGIN}#${hash}?initial=true`
   }, [])
 
   useEffect(() => {

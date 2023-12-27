@@ -6,6 +6,8 @@ import { env } from '@/env'
 import { useIframeStore } from '@/store/useIframeStore'
 import { getBaseUrl } from '@/utils/common'
 
+import { IFRAME_ORIGIN } from './helpers'
+
 export type Message =
   | { action: 'signOut' }
   | { action: 'signInGoogle' }
@@ -38,10 +40,10 @@ export const iframeHandler = (iframeRef: MutableRefObject<HTMLIFrameElement | nu
           }).finally(() => {
             if (!iframeRef.current?.contentWindow) return
 
-            const path = new URL(iframeRef.current.src),
-              hash = `#/auth/email-verify/${message.payload.email}`
+            const hash = `#/auth/email-verify/${message.payload.email}`
 
-            iframeRef.current.src = `${path.origin}/${hash}`
+            iframeRef.current.src = `${IFRAME_ORIGIN}/${hash}`
+            window.location.hash = hash
           })
         case 'signInFacebook':
           return void signIn('facebook', {

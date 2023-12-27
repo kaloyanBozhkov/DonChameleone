@@ -30,6 +30,7 @@ const AuthEmail = ({ to }: AuthEmailProps) => {
               If you have trouble clicking the "Sign In" button, you can copy and paste the
               following link into your browser:
               <br />
+              <br />
               <span className="text-[18px] text-slate-800">{to}</span>
             </Text>
           </div>
