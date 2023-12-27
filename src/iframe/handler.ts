@@ -4,6 +4,7 @@ import { signIn, signOut } from 'next-auth/react'
 
 import { env } from '@/env'
 import { useIframeStore } from '@/store/useIframeStore'
+import { getBaseUrl } from '@/utils/common'
 
 export type Message =
   | { action: 'signOut' }
@@ -32,7 +33,7 @@ export const iframeHandler = (iframeRef: MutableRefObject<HTMLIFrameElement | nu
         case 'signInEmail':
           return void signIn('email', {
             email: message.payload.email,
-            callbackUrl: '/#/play',
+            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
             redirect: false,
           }).finally(() => {
             if (!iframeRef.current?.contentWindow) return
@@ -41,15 +42,14 @@ export const iframeHandler = (iframeRef: MutableRefObject<HTMLIFrameElement | nu
               hash = `#/auth/email-verify/${message.payload.email}`
 
             iframeRef.current.src = `${path.origin}/${hash}`
-            window.location.hash = hash
           })
         case 'signInFacebook':
           return void signIn('facebook', {
-            callbackUrl: '/#/play',
+            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
           })
         case 'signInGoogle':
           return void signIn('google', {
-            callbackUrl: '/#/play',
+            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
           })
         case 'sendLocationUpdate': {
           return useIframeStore.getState().controls.updateLocation(message.payload.pathname)
