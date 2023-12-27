@@ -15,7 +15,7 @@ const EmailPage = ({ children, className = '' }: { children: ReactNode; classNam
               alt="DonChameleone"
               width={500}
               height="auto"
-              className="-ml-[80px] max-w-[90vw]"
+              className="max-w-[90vw]"
             />
             <div className="h-[50px]" />
             <Container className="w-full max-w-[100%] bg-white p-6 shadow-[10px_10px_black]">
