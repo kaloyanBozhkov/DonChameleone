@@ -18,7 +18,7 @@ const AuthEmail = ({ to }: AuthEmailProps) => {
             <div className="h-[20px]" />
             <Link href={to}>
               <Img
-                src={`${getBaseUrl()}/assets/email/sign-in-btn.jpeg`}
+                src={`${getBaseUrl()}/assets/email/sign-in-btn.png`}
                 alt="Sign In"
                 width={400}
                 height="auto"
