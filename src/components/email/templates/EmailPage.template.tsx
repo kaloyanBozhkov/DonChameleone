@@ -10,7 +10,7 @@ const EmailPage = ({ children, className = '' }: { children: ReactNode; classNam
         <Column colSpan={1} className={`${className} bg-blue flex h-fit w-full items-center`}>
           <div className="mb-[200px] mt-[100px] h-full w-full text-center">
             <Img
-              src={`${getBaseUrl()}/assets/email/don-logo.png`}
+              src={`${getBaseUrl()}/assets/email/don-logo.jpg`}
               alt="DonChameleone"
               width={500}
               height="auto"
