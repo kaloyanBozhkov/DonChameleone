@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
+import { messageSystem } from '@/iframe/messageSystem'
 import useGameConfig from '@/store/useGameConfig'
 import useTheme from '@/store/useTheme'
 
@@ -8,7 +9,11 @@ import Group from '../layouts/Group.layout'
 
 import CheckboxButton from './CheckboxButton.molecule'
 
-const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'back' }) => {
+const HeaderControls = ({
+  rightAction = 'back',
+}: {
+  rightAction?: 'rules' | 'back' | 'signout'
+}) => {
   const loc = useLocation(),
     theme = useTheme(),
     sound = useGameConfig(({ sound }) => sound),
@@ -50,10 +55,23 @@ const HeaderControls = ({ rightAction = 'back' }: { rightAction?: 'rules' | 'bac
       {rightAction === 'back' && (
         <Button
           withDots={false}
-          onClick={() => nav(getBack[loc.pathname] ?? -1)}
+          onClick={() => nav(getBack[loc.pathname] ?? '/')}
           label={
             <Group className="h-full w-full gap-[6px]">
               <p>Back</p>
+            </Group>
+          }
+          className={`bg-hot-200 ${btnSizes}`}
+          labelClassName={labelSizes}
+        />
+      )}
+      {rightAction === 'signout' && (
+        <Button
+          withDots
+          onClick={() => messageSystem({ action: 'signOut' })}
+          label={
+            <Group className="h-full w-full gap-[6px]">
+              <p>Sign Out</p>
             </Group>
           }
           className={`bg-hot-200 ${btnSizes}`}

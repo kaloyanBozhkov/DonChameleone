@@ -1,13 +1,14 @@
-import { FC, ReactNode, useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 import { HashRouter, Navigate, Route } from 'react-router-dom'
 
-import { SignedIn, SignedOut } from '@clerk/clerk-react'
-
 import PageTransition from './components/layouts/PageTransition.layout'
+import SignedIn from './components/molecules/SignedIn.molecule'
+import SignedOut from './components/molecules/SignedOut.molecule'
 import { iframeHandler } from './iframe/handler'
 import AboutPage from './pages/About.page'
 import AuthPage from './pages/Auth.page'
+import EmailVerifyPage from './pages/EmailVerify'
 import IndexPage from './pages/Index.page'
 import RoomOptionPage from './pages/RoomOption.page'
 import RuleBookPage from './pages/RuleBook.page'
@@ -57,6 +58,21 @@ const App = () => {
                 </SignedIn>
                 <SignedOut>
                   <AuthPage />
+                </SignedOut>
+              </>
+            )
+          }}
+        />
+        <Route
+          path="/auth/email-verify/:email"
+          Component={() => {
+            return (
+              <>
+                <SignedIn>
+                  <Navigate to="/play" />
+                </SignedIn>
+                <SignedOut>
+                  <EmailVerifyPage />
                 </SignedOut>
               </>
             )

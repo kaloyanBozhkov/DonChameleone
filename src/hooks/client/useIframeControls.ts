@@ -3,10 +3,17 @@ import { useCallback, useEffect, useRef } from 'react'
 import { env } from '@/env'
 import { iframeHandler } from '@/iframe/handler'
 
-export type OutMessage = {
-  action: 'receiveLocationUpdate'
-  payload: { hash: string }
-}
+export type OutMessage =
+  | {
+      action: 'receiveLocationUpdate'
+      payload: { hash: string }
+    }
+  | {
+      action: 'receiveSessionUpdate'
+      payload: {
+        user: IUser
+      }
+    }
 
 export default function useIframeControls() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null),

@@ -25,7 +25,7 @@ const TextCard = ({
           } overflow-hidden`}
         >
           <img
-            src={require('-/public/assets/img/bg-dots-cool.png')}
+            src={require('-/client/public/assets/img/bg-dots-cool.png')}
             className={`pointer-events-none relative -z-10 h-[auto] w-[120%] origin-right scale-[2]  ${
               bg === 'red'
                 ? 'translate-x-[130%] translate-y-[150%] rotate-[30deg]'

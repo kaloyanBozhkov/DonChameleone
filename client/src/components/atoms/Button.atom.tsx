@@ -60,7 +60,7 @@ export default function Button({
         </div>
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <img
-            src={require('-/public/assets/img/bg-dots-cool.png')}
+            src={require('-/client/public/assets/img/bg-dots-cool.png')}
             className="pointer-events-none h-[auto] w-[120%] origin-right translate-x-[6px] translate-y-[-10%] -rotate-3 scale-100 opacity-[70%] transition-all group-hover:scale-[1.05]"
           />
         </div>

@@ -37,7 +37,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^4.30.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",

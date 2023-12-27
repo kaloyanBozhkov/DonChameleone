@@ -6,9 +6,10 @@ import Center from '@/components/layouts/Center.layout'
 import DonButton from '@/components/layouts/DonButton.layout'
 import Don, { DonColors } from '@/components/molecules/Don.molecule'
 import HeaderControls from '@/components/molecules/HeaderControls.molecule'
+import SignedIn from '@/components/molecules/SignedIn.molecule'
+import SignedOut from '@/components/molecules/SignedOut.molecule'
 import TranspCard from '@/components/molecules/TranspCard.molecule'
 import ComicPage from '@/components/templates/ComicPage.template'
-import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export default function IndexPage() {
   const PlayBtn = (
@@ -28,7 +29,7 @@ export default function IndexPage() {
             className="flex h-[400px] w-[80vw] flex-col items-center p-[40px_50px] max-[370px]:h-[300px] sm:h-[580px] sm:max-w-[500px] lg:h-[730px] lg:max-w-[730px]"
           >
             <DonButton
-              donMarginFix="m-[0_0_-15px_0] sm:m-[0_0_-21px_0] lg:m-[0_0_-30px_0]"
+              donWrapperClassName="m-[0_0_-15px_0] sm:m-[0_0_-21px_0] lg:m-[0_0_-30px_0]"
               don={<Don don={DonColors.TRIPLE0} className="w-[250px] sm:w-[350px] lg:w-[500px]" />}
               btn={
                 <>

@@ -1,6 +1,5 @@
-interface Window {
-  controls: {
-    signInGoogle: () => void
-    signInFacebook: () => void
-  }
+type IUser = null | {
+  name: string
+  email: string
+  id: string
 }

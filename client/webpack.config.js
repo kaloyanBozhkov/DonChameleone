@@ -3,16 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
-
 module.exports = {
   devtool: process.env.VERCEL_ENV === 'production' ? false : 'source-map',
   mode: process.env.VERCEL_ENV === 'production' ? 'production' : 'development',
   // the app entry point is /src/index.js
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
-    // the output of the webpack build will be in /public/dist/client directory
+    // the output of the webpack build will be in /public/dist/client directory - Next.JS will serve it from there
     path: path.resolve(__dirname, './../public/dist/client'),
-    // the filename of the JS bundle will be bundle.js
     filename: 'bundle.js',
   },
   resolve: {

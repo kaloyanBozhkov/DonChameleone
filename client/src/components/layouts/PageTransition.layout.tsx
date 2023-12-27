@@ -11,7 +11,8 @@ const PageTransition = ({ children }: { children: ReactNode }) => {
     prevLocation = useRef<string | undefined>(),
     transition = useRef<Transitions>('top'),
     prevTransition = useRef<Transitions | undefined>(),
-    [animation, setAnimation] = useState(getAnimation(transition.current))
+    [animation, setAnimation] = useState(getAnimation(transition.current)),
+    [skipTransition, setSkpTransition] = useState(false)
 
   useLayoutEffect(() => {
     if (prevLocation.current === location.pathname) return
@@ -28,16 +29,31 @@ const PageTransition = ({ children }: { children: ReactNode }) => {
     setAnimation(getAnimation(transition.current))
   }, [location.pathname])
 
+  useLayoutEffect(() => {
+    if (!location.search && location.search.includes('initial=true')) return
+    setSkpTransition(true)
+    const id = setTimeout(() => setSkpTransition(false), 750)
+
+    return () => {
+      setSkpTransition(false)
+      clearTimeout(id)
+    }
+  }, [location])
+
   return (
     <div className="relative h-full w-full">
       <TransitionGroup>
         <CSSTransition
           key={location.pathname}
-          classNames={{
-            enter: animation.in,
-            exit: animation.out,
-          }}
-          timeout={700}
+          classNames={
+            skipTransition
+              ? undefined
+              : {
+                  enter: animation.in,
+                  exit: animation.out,
+                }
+          }
+          timeout={skipTransition ? 0 : 700}
         >
           <Routes location={location}>{children}</Routes>
         </CSSTransition>

@@ -17,14 +17,14 @@ const Don = ({ don, className = '' }: { don: DonColors; className?: string }) =>
 export default Don
 
 const DON_MAP = {
-  [DonColors.BLUE]: require('../../../../public/assets/img/don-blue.png'),
-  [DonColors.GREEN]: require('../../../../public/assets/img/don-green.png'),
-  [DonColors.ORANGE]: require('../../../../public/assets/img/don-orange.png'),
-  [DonColors.PINK]: require('../../../../public/assets/img/don-pink.png'),
-  [DonColors.BROWN]: require('../../../../public/assets/img/don-brown.png'),
-  [DonColors.REDBLUE]: require('../../../../public/assets/img/don-redblue.png'),
-  [DonColors.RED]: require('../../../../public/assets/img/don-red.png'),
-  [DonColors.BW]: require('../../../../public/assets/img/don-bw.png'),
-  [DonColors.TRIPLE0]: require('../../../../public/assets/img/don-triple-0.png'),
-  [DonColors.TRIPLE1]: require('../../../../public/assets/img/don-triple-1.png'),
+  [DonColors.BLUE]: require('-/client/public/assets/img/don-blue.png'),
+  [DonColors.GREEN]: require('-/client/public/assets/img/don-green.png'),
+  [DonColors.ORANGE]: require('-/client/public/assets/img/don-orange.png'),
+  [DonColors.PINK]: require('-/client/public/assets/img/don-pink.png'),
+  [DonColors.BROWN]: require('-/client/public/assets/img/don-brown.png'),
+  [DonColors.REDBLUE]: require('-/client/public/assets/img/don-redblue.png'),
+  [DonColors.RED]: require('-/client/public/assets/img/don-red.png'),
+  [DonColors.BW]: require('-/client/public/assets/img/don-bw.png'),
+  [DonColors.TRIPLE0]: require('-/client/public/assets/img/don-triple-0.png'),
+  [DonColors.TRIPLE1]: require('-/client/public/assets/img/don-triple-1.png'),
 }

@@ -1,13 +1,21 @@
+import { useRef } from 'react'
+
+import { getServerAuthSession } from '@/server/auth'
+
+import { type GetServerSidePropsContext, type InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 
 import { env } from '@/env'
 import useIframeControls from '@/hooks/client/useIframeControls'
 import useLocationHash from '@/hooks/client/useLocationHash'
+import useSessionSync, { getUserObjFromSession } from '@/hooks/client/useSessionSync'
 
-export default function Home() {
-  const { iframeRef } = useIframeControls()
-
+export default function Home({ session }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const { iframeRef, sendEvent } = useIframeControls()
   useLocationHash({ iframeRef })
+  useSessionSync({ sendEvent })
+
+  const initialUserSession = useRef(getUserObjFromSession({ data: session }))
 
   return (
     <>
@@ -18,15 +26,19 @@ export default function Home() {
       </Head>
       <iframe
         ref={iframeRef}
-        src={
+        src={`${
           env.NEXT_PUBLIC_VERCEL_ENV === 'development'
             ? 'http://localhost:8080'
             : '/dist/client/don-game.html'
-        }
+        }?initialUserSession=${JSON.stringify(initialUserSession.current)}`}
         className="h-full w-full"
       />
     </>
   )
+}
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  return { props: { session: await getServerAuthSession(ctx) } }
 }
 
 // function AuthShowcase() {

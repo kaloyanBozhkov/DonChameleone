@@ -20,7 +20,7 @@ const useLocationHash = ({
     const hash = router.asPath.split('#')[1] ?? ''
     if (!hash || !iframeRef.current) return
     const path = new URL(iframeRef.current.src)
-    iframeRef.current.src = `${path.origin}#${hash}`
+    iframeRef.current.src = `${path.origin}#${hash}?initial=true`
   }, [])
 
   useEffect(() => {

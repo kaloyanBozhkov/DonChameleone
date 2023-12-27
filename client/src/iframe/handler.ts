@@ -1,4 +1,5 @@
 import env from '@/env'
+import useParentSession from '@/store/useParentSession'
 
 import { OutMessage } from '-/src/hooks/client/useIframeControls'
 
@@ -10,6 +11,8 @@ export const iframeHandler = () => {
       if (message.action) console.log('Message from parent iframe:', message)
 
       switch (message.action) {
+        case 'receiveSessionUpdate':
+          return useParentSession.getState().controls.setUser(message.payload.user)
         default:
           return
       }
