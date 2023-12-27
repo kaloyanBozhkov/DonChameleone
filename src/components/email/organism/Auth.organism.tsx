@@ -16,13 +16,13 @@ const AuthEmail = ({ to }: AuthEmailProps) => {
               Click the below button in order to sign in and begin your session.
             </Text>
             <div className="h-[20px]" />
-            <Link href={to}>
+            <Link href={to} className="-ml-[30px]">
               <Img
                 src={`${getBaseUrl()}/assets/email/sign-in-btn.png`}
                 alt="Sign In"
                 width={400}
                 height="auto"
-                className="-ml-[30px] max-w-[90vw]"
+                className="max-w-[90vw]"
               />
             </Link>
             <div className="h-[60px]" />
