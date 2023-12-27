@@ -17,6 +17,21 @@ const config = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  async headers() {
+    return [
+      {
+        // Define the route or routes for which you want to apply these headers
+        source: '/public/(.*)',
+        headers: [
+          {
+            // Allow loading resources from googleusercontent.com
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://googleusercontent.com',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 export default config
