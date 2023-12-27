@@ -26,12 +26,8 @@ const Index = ({ email, props }: EmailType) => {
       <Html lang="eng" dir="ltr">
         <Head>
           <Font
-            fontFamily="Bada"
-            fallbackFontFamily="Verdana"
-            webFont={{
-              url: `${getBaseUrl()}/dist/client/assets/fonts/badaboombb.ttf`,
-              format: 'truetype',
-            }}
+            fontFamily="Roboto"
+            fallbackFontFamily="Arial"
             fontWeight={400}
             fontStyle="normal"
           />
