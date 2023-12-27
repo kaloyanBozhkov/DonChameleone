@@ -35,7 +35,7 @@ export const iframeHandler = (iframeRef: MutableRefObject<HTMLIFrameElement | nu
         case 'signInEmail':
           return void signIn('email', {
             email: message.payload.email,
-            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
+            callbackUrl: '/#/play',
             redirect: false,
           }).finally(() => {
             if (!iframeRef.current?.contentWindow) return
@@ -47,11 +47,11 @@ export const iframeHandler = (iframeRef: MutableRefObject<HTMLIFrameElement | nu
           })
         case 'signInFacebook':
           return void signIn('facebook', {
-            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
+            callbackUrl: '/#/play',
           })
         case 'signInGoogle':
           return void signIn('google', {
-            callbackUrl: `${getBaseUrl()}/api/authed/callback`,
+            callbackUrl: '/#/play',
           })
         case 'sendLocationUpdate': {
           return useIframeStore.getState().controls.updateLocation(message.payload.pathname)
