@@ -92,4 +92,5 @@ const getBack = {
   '/rules/1v1': '/rules',
   '/rules/gameplay': '/rules',
   '/about': '/',
+  '/join': '/play',
 }

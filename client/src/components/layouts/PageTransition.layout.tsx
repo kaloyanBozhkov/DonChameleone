@@ -30,7 +30,14 @@ const PageTransition = ({ children }: { children: ReactNode }) => {
   }, [location.pathname])
 
   useLayoutEffect(() => {
-    if (!location.search && location.search.includes('initial=true')) return
+    const query = new URLSearchParams(location.search)
+    if (!query.has('initial') || !query.get('initial')) return
+    query.delete('initial')
+    const newQ = query.toString()
+    const newUrl = `${window.location.pathname}${newQ && `?${newQ}`}`
+    console.log(newUrl)
+    window.history.replaceState({}, document.title, newUrl)
+
     setSkpTransition(true)
     const id = setTimeout(() => setSkpTransition(false), 750)
 

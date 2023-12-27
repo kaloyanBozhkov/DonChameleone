@@ -5,10 +5,10 @@ export const initializeUserSession = () => {
   try {
     if (!window.location.search) return
 
-    const s = window.location.search.split('initialUserSession=')
-    if (!s) return
+    const query = new URLSearchParams(window.location.search)
+    if (!query.has('initialUserSession')) return
 
-    const initialUserSession = s[0]
+    const initialUserSession = query.get('initialUserSession')
     if (!initialUserSession) return
 
     useParentSession.getState().controls.setUser(JSON.parse(initialUserSession))

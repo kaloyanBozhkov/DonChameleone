@@ -20,12 +20,27 @@ const useLocationHash = ({
     gate.current = true
     const hash = router.asPath.split('#')[1] ?? ''
     if (!hash || !iframeRef.current) return
-    iframeRef.current.src = `${IFRAME_ORIGIN}#${hash}?initial=true`
+    const hashParts = hash.split('?'),
+      hashPath = hashParts[0],
+      search = new URLSearchParams(hashParts[1])
+
+    search.delete('initial')
+    search.append('initial', 'true')
+
+    const searchParams = search.toString()
+
+    iframeRef.current.src = `${IFRAME_ORIGIN}#${hashPath}${searchParams ? `?${searchParams}` : ''}`
   }, [])
 
   useEffect(() => {
     if (iframePathname === null || !iframeRef.current) return
-    window.location.hash = `#${iframePathname}`
+    const pathParts = iframePathname.split('?'),
+      search = new URLSearchParams(pathParts[1])
+
+    search.delete('initial')
+    const searchParams = search.toString()
+
+    window.location.hash = `#${pathParts[0]}${searchParams ? `?${searchParams}` : searchParams}`
   }, [iframePathname])
 }
 

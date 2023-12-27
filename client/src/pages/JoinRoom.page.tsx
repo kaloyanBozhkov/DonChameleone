@@ -1,4 +1,6 @@
-import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+
+import { useLocation } from 'react-router-dom'
 
 import Button from '@/components/atoms/Button.atom'
 import InputText from '@/components/atoms/InputText.atom'
@@ -12,15 +14,18 @@ import ComicPage from '@/components/templates/ComicPage.template'
 import { isNotEmpty, useForm } from '@mantine/form'
 
 export default function JoinRoomPage() {
-  const label =
-      'max-[370px]:text-[26px] max-[370px]:leading-[26px] sm:text-[35px] text-[30px] stroked-2px leading-[40px]',
-    params = useParams(),
+  const loc = useLocation(),
     form = useForm({
       initialValues: {
         roomName: '',
       },
       validate: { roomName: isNotEmpty('Missing field') },
     })
+
+  useEffect(() => {
+    const params = new URLSearchParams(loc.search)
+    if (params.has('room')) form.setFieldValue('roomName', params.get('room')!)
+  }, [])
 
   return (
     <ComicPage>
@@ -41,6 +46,7 @@ export default function JoinRoomPage() {
             >
               <InputText
                 label="Room Name:"
+                value={form.values.roomName}
                 onChange={form.getInputProps('roomName').onChange}
                 error={form.errors?.roomName}
                 className="w-[250px] max-[370px]:w-[180px] sm:w-[388px] "

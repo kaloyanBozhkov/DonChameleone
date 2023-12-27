@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react'
 
+import { useParams } from 'next/navigation'
 import { HashRouter, Navigate, Route } from 'react-router-dom'
 
 import PageTransition from './components/layouts/PageTransition.layout'
@@ -8,19 +9,24 @@ import SignedOut from './components/molecules/SignedOut.molecule'
 import { iframeHandler } from './iframe/handler'
 import AboutPage from './pages/About.page'
 import AuthPage from './pages/Auth.page'
-import EmailVerifyPage from './pages/EmailVerify'
+import EmailVerifyPage from './pages/EmailVerify.page'
 import IndexPage from './pages/Index.page'
+import InviteFriendsPage from './pages/InviteFriends.page'
 import JoinRoomPage from './pages/JoinRoom.page'
 import RoomOptionPage from './pages/RoomOption.page'
 import RuleBookPage from './pages/RuleBook.page'
-import RulesPage from './pages/RulesPage'
+import RulesPage from './pages/Rules.page'
 
 const App = () => {
   useLayoutEffect(iframeHandler, [])
 
   useLayoutEffect(() => {
     // clear initial styles of empty page
-    document.querySelector('body.empty')?.setAttribute('class', '')
+    const id = setTimeout(() => {
+      document.querySelector('body.empty')?.setAttribute('class', '')
+    }, 2000)
+
+    return () => clearTimeout(id)
   }, [])
 
   return (
@@ -86,6 +92,37 @@ const App = () => {
               <>
                 <SignedIn>
                   <JoinRoomPage />
+                </SignedIn>
+                <SignedOut>
+                  <Navigate to="/auth" />
+                </SignedOut>
+              </>
+            )
+          }}
+        />
+        <Route
+          path="/create"
+          Component={() => {
+            return (
+              <>
+                <SignedIn>
+                  {/* add card pack select page */}
+                  <Navigate to="/invite" />
+                </SignedIn>
+                <SignedOut>
+                  <Navigate to="/auth" />
+                </SignedOut>
+              </>
+            )
+          }}
+        />
+        <Route
+          path="/invite"
+          Component={() => {
+            return (
+              <>
+                <SignedIn>
+                  <InviteFriendsPage />
                 </SignedIn>
                 <SignedOut>
                   <Navigate to="/auth" />

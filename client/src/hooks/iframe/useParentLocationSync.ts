@@ -8,7 +8,10 @@ const useParentLocationSync = () => {
   const loc = useLocation()
 
   useEffect(() => {
-    messageSystem({ action: 'sendLocationUpdate', payload: { pathname: loc.pathname } })
+    messageSystem({
+      action: 'sendLocationUpdate',
+      payload: { pathname: `${loc.pathname}${loc.search}` },
+    })
   }, [loc])
 }
 
