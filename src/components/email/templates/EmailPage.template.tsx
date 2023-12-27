@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { getBaseUrl } from '@/utils/common'
-import { Column, Container, Row, Section } from '@react-email/components'
+import { Column, Container, Img, Row, Section } from '@react-email/components'
 
 const EmailPage = ({ children, className = '' }: { children: ReactNode; className?: string }) => {
   return (
@@ -9,13 +9,12 @@ const EmailPage = ({ children, className = '' }: { children: ReactNode; classNam
       <Row>
         <Column colSpan={1} className={`${className} bg-blue flex h-fit w-full items-center`}>
           <div className="mb-[200px] mt-[100px] h-full w-full text-center">
-            {/* eslint-disable-next-line */}
-            <img
+            <Img
               src={`${getBaseUrl()}/assets/email/don-logo.png`}
               alt="DonChameleone"
               width={500}
               height="auto"
-              className="max-w-[90vw]"
+              className="m-auto max-w-[90vw]"
             />
             <div className="h-[50px]" />
             <Container className="w-full max-w-[100%] bg-white p-6 shadow-[10px_10px_black]">

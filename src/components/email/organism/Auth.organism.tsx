@@ -1,5 +1,5 @@
 import { getBaseUrl } from '@/utils/common'
-import { Column, Link, Row, Section, Text } from '@react-email/components'
+import { Column, Img, Link, Row, Section, Text } from '@react-email/components'
 
 export type AuthEmailProps = { to: string }
 
@@ -17,8 +17,7 @@ const AuthEmail = ({ to }: AuthEmailProps) => {
             </Text>
             <div className="h-[20px]" />
             <Link href={to}>
-              {/* eslint-disable-next-line */}
-              <img
+              <Img
                 src={`${getBaseUrl()}/assets/email/sign-in-btn.png`}
                 alt="Sign In"
                 width={400}
