@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
+
 import Button from '@/components/atoms/Button.atom'
 import AppLayout from '@/components/layouts/App.layout'
-import Center from '@/components/layouts/Center.layout'
 import DonButton from '@/components/layouts/DonButton.layout'
 import Group from '@/components/layouts/Group.layout'
 import Stack from '@/components/layouts/Stack.layout'
@@ -30,7 +31,7 @@ export default function RoomOptionPage() {
             </Group>
             <TranspCard
               withSpiral
-              className="flex w-[80vw] min-w-fit flex-col items-center p-[40px_50px] sm:max-w-[625px] lg:max-w-[750px]"
+              className="mb-[100px] flex w-[80vw] min-w-fit max-w-[90vw] flex-col items-center p-[20px_25px] sm:mb-0 sm:max-w-[625px] sm:p-[40px_50px] lg:max-w-[750px]"
             >
               <Group className="flex-col sm:flex-row">
                 <DonButton
@@ -42,11 +43,13 @@ export default function RoomOptionPage() {
                     />
                   }
                   btn={
-                    <Button
-                      label="Create"
-                      className={`${btn} bg-blue-300`}
-                      labelClassName={label}
-                    />
+                    <Link to="/create">
+                      <Button
+                        label="Create"
+                        className={`${btn} bg-blue-300`}
+                        labelClassName={label}
+                      />
+                    </Link>
                   }
                 />
                 <p
@@ -63,11 +66,13 @@ export default function RoomOptionPage() {
                     />
                   }
                   btn={
-                    <Button
-                      label="Join"
-                      className={`${btn} bg-purple-300`}
-                      labelClassName={label}
-                    />
+                    <Link to="/join">
+                      <Button
+                        label="Join"
+                        className={`${btn} bg-purple-300`}
+                        labelClassName={label}
+                      />
+                    </Link>
                   }
                 />
               </Group>

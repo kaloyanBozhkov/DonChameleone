@@ -78,6 +78,21 @@ const App = () => {
             )
           }}
         />
+        <Route
+          path="//email-verify/:email"
+          Component={() => {
+            return (
+              <>
+                <SignedIn>
+                  <Navigate to="/play" />
+                </SignedIn>
+                <SignedOut>
+                  <EmailVerifyPage />
+                </SignedOut>
+              </>
+            )
+          }}
+        />
       </PageTransition>
     </HashRouter>
   )
