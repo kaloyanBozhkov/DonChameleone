@@ -19,7 +19,7 @@ const InputText = ({
     <div className={`${className} relative`}>
       <div className="relative bottom-[-5px] z-0 w-fit overflow-hidden rounded-t-[20px] border-[4px] border-white px-[20px] shadow-[-5px_5px_black]">
         {typeof label === 'string' ? (
-          <p className="z-1 font-don stroked-2px text-[15px] text-white sm:text-[25px]">{label}</p>
+          <p className="z-1 font-don text-[15px] text-white stroked-2px sm:text-[25px]">{label}</p>
         ) : (
           label
         )}
@@ -30,7 +30,7 @@ const InputText = ({
           type="text"
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
-          className="stroked-1px h-full w-full bg-transparent pl-[10px] pr-[53px] font-[Arial] text-[20px] font-semibold text-white outline-none sm:text-[25px]"
+          className="h-full w-full bg-transparent pl-[10px] pr-[53px] font-[Arial] text-[20px] font-semibold text-white outline-none stroked-1px sm:text-[25px]"
         />
         <Center className="pointer-events-none absolute bottom-0 right-[12px] top-0 !w-[unset]">
           <img
@@ -40,7 +40,7 @@ const InputText = ({
         </Center>
       </div>
       {error && (
-        <p className="stroked-white-1px sm:stroked-white-2px absolute right-0 top-[5px] font-[Arial] text-[15px] font-semibold text-red-600 sm:text-[25px]">
+        <p className="absolute right-0 top-[5px] font-[Arial] text-[15px] font-semibold text-red-600 stroked-white-1px sm:text-[25px] sm:stroked-white-2px">
           * {error}
         </p>
       )}

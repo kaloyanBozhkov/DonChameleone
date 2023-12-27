@@ -1,5 +1,3 @@
-import styles from './styles.module.scss'
-
 export type DotsLoaderSize = 'default' | 'sm'
 
 export type DotsLoaderProps = {

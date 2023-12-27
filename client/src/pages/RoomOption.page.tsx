@@ -21,11 +21,11 @@ export default function RoomOptionPage() {
       <AppLayout header={<HeaderControls rightAction="signout" />}>
         <div className="flex h-full w-full flex-col items-center justify-start py-[100px] sm:justify-center sm:py-0">
           <Stack className="gap-[15px]">
-            <Group className="font-don stroked-1px sm:stroked-2px lg:stroked-3px gap-[4px] text-[37.6px] max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] lg:gap-[15px] lg:text-[60px]">
-              <p className="text-hot-500 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms]">
+            <Group className="gap-[4px] font-don text-[37.6px] stroked-1px max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
+              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
                 Room
               </p>
-              <p className="text-hot-200 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms]">
+              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms] text-hot-200">
                 Option
               </p>
             </Group>
@@ -53,7 +53,7 @@ export default function RoomOptionPage() {
                   }
                 />
                 <p
-                  className={`${label} font-don -mx-[20px] mt-[30px] scale-[0.8] text-nowrap text-white sm:-mb-[30px] sm:-mt-[10px]`}
+                  className={`${label} -mx-[20px] mt-[30px] scale-[0.8] text-nowrap font-don text-white sm:-mb-[30px] sm:-mt-[10px]`}
                 >
                   - or -
                 </p>

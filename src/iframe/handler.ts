@@ -4,7 +4,6 @@ import { signIn, signOut } from 'next-auth/react'
 
 import { env } from '@/env'
 import { useIframeStore } from '@/store/useIframeStore'
-import { getBaseUrl } from '@/utils/common'
 
 import { IFRAME_ORIGIN } from './helpers'
 

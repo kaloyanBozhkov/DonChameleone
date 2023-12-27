@@ -1,7 +1,5 @@
 import { type ReactNode } from 'react'
 
-import { useLocation } from 'react-router-dom'
-
 import useParentLocationSync from '@/hooks/iframe/useParentLocationSync'
 
 import Don, { DonColors } from '../molecules/Don.molecule'

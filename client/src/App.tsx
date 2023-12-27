@@ -1,6 +1,5 @@
 import { useLayoutEffect } from 'react'
 
-import { useParams } from 'next/navigation'
 import { HashRouter, Navigate, Route } from 'react-router-dom'
 
 import PageTransition from './components/layouts/PageTransition.layout'

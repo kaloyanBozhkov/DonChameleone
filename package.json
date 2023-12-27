@@ -10,14 +10,16 @@
     "dev": "next dev",
     "postinstall": "prisma generate && cd client && bun i",
     "lint": "next lint --dir src/",
-    "lint:client": "next lint --dir client/src/",
-    "lint:fix": "next lint --fix --dir src/ --dir client/src/",
+    "lint:fix": "next lint --fix --dir src/",
+    "lint:client": "cd client && bun lint",
+    "lint:client:fix": "cd client && bun lint:fix",
     "prettier": "prettier --check '{src,client/src}/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
     "prettier:fix": "prettier --write '{src,client/src}/**/*.{js,*.js,ts,*.ts,tsx,*.tsx,scss,*.scss,css,*.css,json,*.scss.d.ts,.scss.d.ts}'",
     "types": "tsc --project . --noEmit",
     "types:watch": "tsc --project . --noEmit --watch",
     "check": "bun lint && bun prettier && bun types",
     "fix": "bun lint:fix && bun prettier:fix",
+    "fix:both": "bun lint:fix && bun prettier:fix && bun lint:client:fix",
     "start": "next start"
   },
   "dependencies": {

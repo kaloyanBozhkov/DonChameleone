@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 
-type ParentActionsStore = {}
+type ParentActionsStore = {
+  none: boolean
+}
 
-const useParentActions = create<ParentActionsStore>(() => ({}))
+const useParentActions = create<ParentActionsStore>(() => ({ none: true }))
 
 export default useParentActions

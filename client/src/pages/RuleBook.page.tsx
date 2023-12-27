@@ -22,11 +22,11 @@ export default function RuleBookPage() {
         <Center className="sm:-mt-[25px]">
           <Stack className="gap-[15px] sm:gap-[25px]">
             <div className="relative -mb-[30px] w-[400px] max-[370px]:w-[250px] sm:w-[550px] lg:w-[718px]">
-              <Group className="font-don stroked-1px sm:stroked-2px lg:stroked-3px absolute right-[11.2%] top-[15.3%] -rotate-3  gap-[4px] text-[37.6px] max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] lg:gap-[15px] lg:text-[60px]">
-                <p className="text-hot-500 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms]">
+              <Group className="absolute right-[11.2%] top-[15.3%] -rotate-3 gap-[4px] font-don text-[37.6px] stroked-1px  max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
+                <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
                   Rule
                 </p>
-                <p className="text-hot-200 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms]">
+                <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms] text-hot-200">
                   Book
                 </p>
               </Group>
@@ -65,7 +65,7 @@ export default function RuleBookPage() {
                   wrapperClassName={btnAnim}
                   wrapperStyle={{ animationDelay: '800ms' }}
                   label="About Us"
-                  className="bg-hot-200 h-[40px] w-[70px] sm:h-[50px] sm:w-[150px] lg:h-[74px] lg:w-[192px]"
+                  className="h-[40px] w-[70px] bg-hot-200 sm:h-[50px] sm:w-[150px] lg:h-[74px] lg:w-[192px]"
                   labelClassName="text-[15px] leading-[15px] sm:text-[31px] sm:leading-[31px] lg:text-[40px] lg:leading-[40px] lg:stroked-2px stroked-1px"
                 />
               </Link>

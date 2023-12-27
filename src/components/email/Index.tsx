@@ -1,4 +1,3 @@
-import { getBaseUrl } from '@/utils/common'
 import { Font, Head, Html, Tailwind, render } from '@react-email/components'
 
 import tailwindConfig from '-/tailwind.config'

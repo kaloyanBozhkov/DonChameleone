@@ -2,6 +2,8 @@
 const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     project: './tsconfig.json',
   },
   plugins: ['@typescript-eslint'],
@@ -10,7 +12,7 @@ const config = {
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
   ],
-  ignorePatterns: ['webpack.config.js', 'tailwind.css'],
+  ignorePatterns: ['webpack.config.js', 'tailwind.css', './client/**/*'],
   rules: {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
