@@ -15,18 +15,6 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
-
-    @@index([name])
-}
-
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -62,7 +50,12 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    posts         Post[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    ownership   Ownership[]
+    playSession PlaySession[]
 }
 
 model VerificationToken {
@@ -71,4 +64,104 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// APP
+model Ownership {
+    id String @id @default(uuid())
+
+    userId    String?
+    user      User?      @relation(fields: [userId], references: [id])
+    cardPacks CardPack[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+}
+
+model CardPack {
+    id String @id @default(uuid())
+
+    title      String
+    song       String
+    donVariant String
+
+    questions Question[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    ownership   Ownership? @relation(fields: [ownershipId], references: [id])
+    ownershipId String?
+
+    room Room[]
+}
+
+model Question {
+    id String @id @default(uuid())
+
+    q String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    cardPack   CardPack @relation(fields: [cardPackId], references: [id])
+    cardPackId String
+
+    // @TODO add q track
+}
+
+model PlaySession {
+    id          String  @id @default(uuid())
+    user        User    @relation(fields: [userId], references: [id])
+    userId      String
+    room        Room    @relation(fields: [roomId], references: [id])
+    roomId      String
+    isAbandoned Boolean @default(false)
+    isLiar      Boolean @default(false)
+    isOwner     Boolean @default(false)
+    latestVote  Boolean @default(false)
+    score       Float   @default(0)
+    order       Int     @default(0)
+
+    vote Vote[]
+}
+
+model Vote {
+    id          String @id @default(uuid())
+    userId      String
+    votedUserId String
+
+    playSession   PlaySession? @relation(fields: [playSessionId], references: [id])
+    playSessionId String?
+}
+
+model Room {
+    id            String @id @default(uuid())
+    name          String
+    round         Int    @default(0)
+    roundQuestion String @default("")
+
+    // array of prev questions
+    prevQuestions Json @default("[]")
+
+    phase GAME_PHASE @default(LOBBY)
+
+    cardPackId String
+    cardPack   CardPack @relation(fields: [cardPackId], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    players PlaySession[]
+}
+
+enum GAME_PHASE {
+    LOBBY
+    STARTED
+    ROLES
+    QUESTION_TIME
+    ASK_QUESTIONS
+    VOTE
+    VOTE_RESULTS
+    OVER
 }
