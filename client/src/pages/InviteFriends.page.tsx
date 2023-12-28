@@ -17,11 +17,11 @@ export default function InviteFriendsPage() {
       <AppLayout header={<HeaderControls />}>
         <Center className="mt-[50px] sm:mt-0">
           <Stack className="gap-[15px]">
-            <Group className="gap-[4px] font-don text-[37.6px] stroked-1px max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
-              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
+            <Group className="font-don stroked-1px sm:stroked-2px lg:stroked-3px gap-[4px] text-[37.6px] max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] lg:gap-[15px] lg:text-[60px]">
+              <p className="text-hot-500 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms]">
                 Join
               </p>
-              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms] text-hot-200">
+              <p className="text-hot-200 scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms]">
                 Room
               </p>
             </Group>
@@ -29,6 +29,15 @@ export default function InviteFriendsPage() {
               withSpiral
               className="flex w-[80vw] flex-col items-center gap-[40px] p-[40px_50px] max-[450px]:p-[10px] sm:max-w-[466px] lg:max-w-[525px]"
             >
+              <Stack className="font-don -rotate-[3deg] gap-0 text-white">
+                <p className="stroked-2px text-[20px] leading-[20px] sm:text-[30px] sm:leading-[30px]">
+                  Your room is ready!
+                </p>
+                <p className="stroked-2px text-[33px] leading-[33px] sm:text-[50px] sm:leading-[50px]">
+                  The <span className="text-hot-500">room</span>{' '}
+                  <span className="text-hot-200">name</span> is:
+                </p>
+              </Stack>
               <DisplayInput value={roomName} className="sm:max-w-[388px]" />
               <CopyButton value={`${getBaseUrl()}/join?room=${roomName}`}>
                 {({ copied, copy }) => (
