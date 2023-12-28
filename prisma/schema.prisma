@@ -110,6 +110,12 @@ model Question {
     // @TODO add q track
 }
 
+enum VOTE {
+    NOT_VOTED
+    YES
+    NO
+}
+
 model PlaySession {
     id          String  @id @default(uuid())
     user        User    @relation(fields: [userId], references: [id])
@@ -119,7 +125,7 @@ model PlaySession {
     isAbandoned Boolean @default(false)
     isLiar      Boolean @default(false)
     isOwner     Boolean @default(false)
-    latestVote  Boolean @default(false)
+    latestVote  VOTE    @default(NOT_VOTED)
     score       Float   @default(0)
     order       Int     @default(0)
 
@@ -130,6 +136,7 @@ model Vote {
     id          String @id @default(uuid())
     userId      String
     votedUserId String
+    label       String
 
     playSession   PlaySession? @relation(fields: [playSessionId], references: [id])
     playSessionId String?

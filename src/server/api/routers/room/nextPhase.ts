@@ -2,7 +2,7 @@ import { protectedProcedure } from '@/server/api/trpc'
 
 import { z } from 'zod'
 
-import { GAME_PHASE } from '@prisma/client'
+import { GAME_PHASE, VOTE } from '@prisma/client'
 
 import { isGameOwner } from '../../common'
 
@@ -33,7 +33,7 @@ export const nextPhase = protectedProcedure
         roomId,
       },
       data: {
-        latestVote: false,
+        latestVote: VOTE.NOT_VOTED,
       },
     })
   })
