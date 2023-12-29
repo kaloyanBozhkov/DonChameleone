@@ -7,6 +7,7 @@ import Group from '@/components/layouts/Group.layout'
 import Stack from '@/components/layouts/Stack.layout'
 import Don, { DonColors } from '@/components/molecules/Don.molecule'
 import HeaderControls from '@/components/molecules/HeaderControls.molecule'
+import PageTitle from '@/components/molecules/PageTitle.molecule'
 import TranspCard from '@/components/molecules/TranspCard.molecule'
 import ComicPage from '@/components/templates/ComicPage.template'
 
@@ -21,14 +22,7 @@ export default function RoomOptionPage() {
       <AppLayout header={<HeaderControls rightAction="signout" />}>
         <div className="flex h-full w-full flex-col items-center justify-start py-[100px] sm:justify-center sm:py-0">
           <Stack className="gap-[15px]">
-            <Group className="gap-[4px] font-don text-[37.6px] stroked-1px max-[370px]:text-[20px] sm:gap-[8px] sm:text-[50px] sm:stroked-2px lg:gap-[15px] lg:text-[60px] lg:stroked-3px">
-              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_850ms] text-hot-500">
-                Room
-              </p>
-              <p className="scale-0 animate-[pop-in_250ms_ease-in-out_forwards_900ms] text-hot-200">
-                Option
-              </p>
-            </Group>
+            <PageTitle first="Room" last="Option" />
             <TranspCard
               withSpiral
               className="mb-[100px] flex w-[80vw] min-w-fit max-w-[90vw] flex-col items-center p-[20px_25px] sm:mb-0 sm:max-w-[625px] sm:p-[40px_50px] lg:max-w-[750px]"
