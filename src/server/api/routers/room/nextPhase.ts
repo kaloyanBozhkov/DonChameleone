@@ -14,7 +14,7 @@ export const nextPhase = protectedProcedure
       data: {
         phase,
         round: {
-          increment: 1,
+          increment: GAME_PHASE.STARTED === phase ? 1 : 0,
         },
       },
       where: {
@@ -36,4 +36,33 @@ export const nextPhase = protectedProcedure
         latestVote: VOTE.NOT_VOTED,
       },
     })
+
+    if (phase === GAME_PHASE.ROLES) {
+      const userIds = await prisma.playSession.findMany({
+          where: {
+            roomId,
+          },
+          select: {
+            userId: true,
+            id: true,
+          },
+        }),
+        rng = Math.floor(userIds.length * Math.random())
+      // @TODO add second liar if more than X players?
+
+      await prisma.$transaction(
+        userIds.map(({ userId, id }, idx) =>
+          prisma.playSession.update({
+            where: {
+              id,
+              roomId,
+              userId,
+            },
+            data: {
+              isLiar: idx === rng,
+            },
+          })
+        )
+      )
+    }
   })

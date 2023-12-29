@@ -12,9 +12,11 @@ import EmailVerifyPage from './pages/EmailVerify.page'
 import IndexPage from './pages/Index.page'
 import InviteFriendsPage from './pages/InviteFriends.page'
 import JoinRoomPage from './pages/JoinRoom.page'
+import LobbyPage from './pages/Lobby.page'
 import RoomOptionPage from './pages/RoomOption.page'
 import RuleBookPage from './pages/RuleBook.page'
 import RulesPage from './pages/Rules.page'
+import SelectThemePage from './pages/SelectTheme.page'
 
 const App = () => {
   useLayoutEffect(iframeHandler, [])
@@ -105,8 +107,7 @@ const App = () => {
             return (
               <>
                 <SignedIn>
-                  {/* add card pack select page */}
-                  <Navigate to="/invite" />
+                  <SelectThemePage />
                 </SignedIn>
                 <SignedOut>
                   <Navigate to="/auth" />
@@ -122,6 +123,21 @@ const App = () => {
               <>
                 <SignedIn>
                   <InviteFriendsPage />
+                </SignedIn>
+                <SignedOut>
+                  <Navigate to="/auth" />
+                </SignedOut>
+              </>
+            )
+          }}
+        />
+        <Route
+          path="/lobby"
+          Component={() => {
+            return (
+              <>
+                <SignedIn>
+                  <LobbyPage />
                 </SignedIn>
                 <SignedOut>
                   <Navigate to="/auth" />

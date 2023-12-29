@@ -122,6 +122,7 @@ model PlaySession {
     userId      String
     room        Room    @relation(fields: [roomId], references: [id])
     roomId      String
+    isPlaying   Boolean @default(true)
     isAbandoned Boolean @default(false)
     isLiar      Boolean @default(false)
     isOwner     Boolean @default(false)

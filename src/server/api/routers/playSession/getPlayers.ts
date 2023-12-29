@@ -10,6 +10,7 @@ export const getPlayers = protectedProcedure
         roomId,
       },
       select: {
+        isOwner: true,
         user: {
           select: {
             name: true,
@@ -21,6 +22,10 @@ export const getPlayers = protectedProcedure
     })
 
     return {
-      players: players.map(({ user }) => ({ name: user.name ?? user.email, userId: user.id })),
+      players: players.map(({ user, isOwner }) => ({
+        name: user.name ?? user.email,
+        userId: user.id,
+        isOwner,
+      })),
     }
   })
