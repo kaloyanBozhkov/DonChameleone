@@ -13,14 +13,16 @@ export const add = protectedProcedure
       }),
       order = await prisma.playSession.count({ where: { roomId } })
 
-    await prisma.playSession.upsert({
-      where: { userId: session.user.id, roomId },
-      update: {},
-      create: {
-        userId: session.user.id,
-        roomId,
-        order: order + 1,
-        isPlaying: phase === GAME_PHASE.LOBBY,
+    await prisma.room.update({
+      where: { id: roomId },
+      data: {
+        players: {
+          create: {
+            userId: session.user.id,
+            order: order + 1,
+            isPlaying: phase === GAME_PHASE.LOBBY,
+          },
+        },
       },
       select: null,
     })

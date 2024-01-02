@@ -3,7 +3,6 @@ import { protectedProcedure } from '@/server/api/trpc'
 import { z } from 'zod'
 
 import { GAME_PHASE } from '@prisma/client'
-import { TRPCError } from '@trpc/server'
 
 import { isAtPhase, isGameOwner } from '../../common'
 

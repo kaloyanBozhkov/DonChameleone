@@ -57,7 +57,6 @@ export default function InviteFriendsPage() {
                   />
                 )}
               </CopyButton>
-
               <Link to="/lobby">
                 <Button
                   withDots={false}
