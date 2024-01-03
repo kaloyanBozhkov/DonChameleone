@@ -17,8 +17,8 @@ const PlayerTag = ({
     <div className={`${className} relative z-0 select-none`}>
       <div className="absolute bottom-[10%] left-[5%] right-[13%] top-[10%] z-10 flex flex-row">
         <div className="min-w-[6.5%]">{leftSide}</div>
-        <div className="w-[58%]">{content}</div>
-        <div className="ml-auto w-[8.5%]">{rightSide}</div>
+        <div className="flex w-[58%] items-center lg:w-[75%]">{content}</div>
+        <div className="ml-auto flex w-[8.5%] items-center">{rightSide}</div>
       </div>
       <WrapperTag fill={fill} className="h-auto w-full" />
     </div>

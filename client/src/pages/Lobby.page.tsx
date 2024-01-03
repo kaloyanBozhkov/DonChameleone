@@ -49,14 +49,27 @@ export default function LobbyPage() {
                     leftSide={
                       isOwner && (
                         <Center className="px-[15px]">
-                          <FontAwesomeIcon icon={faBars} size="2x" color="black" />
+                          <FontAwesomeIcon
+                            icon={faBars}
+                            size="2x"
+                            color="black"
+                            className="scale-50 sm:scale-75 lg:scale-100"
+                          />
                         </Center>
                       )
                     }
                     fill={order % 2 ? theme.colors.blue['400'] : theme.colors.purple['400']}
-                    content={<p className="text-[45px] text-white stroked-2px">{name}</p>}
+                    content={
+                      <p className="overflow-hidden text-ellipsis whitespace-nowrap px-[3px] text-[25px] text-white stroked-2px sm:text-[30px] lg:text-[45px]">
+                        {name}
+                      </p>
+                    }
                     key={userId}
-                    rightSide={<p className="text-[65px] leading-[100%] text-black">{order}</p>}
+                    rightSide={
+                      <p className="text-[35px] leading-[100%] text-black sm:text-[43px] lg:text-[65px]">
+                        {order}
+                      </p>
+                    }
                   />
                 ))}
               </Stack>
