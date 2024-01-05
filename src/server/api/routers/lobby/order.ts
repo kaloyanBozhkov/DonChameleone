@@ -10,8 +10,8 @@ export const order = protectedProcedure
   .input(
     z.object({
       roomId: z.string().uuid(),
-      fromUserId: z.string().uuid(),
-      toUserId: z.string().uuid(),
+      fromUserId: z.string(),
+      toUserId: z.string(),
     })
   )
   .mutation(async ({ ctx: { prisma, session }, input: { roomId, fromUserId, toUserId } }) => {

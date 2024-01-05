@@ -1,4 +1,7 @@
+import { mountStoreDevtool } from 'simple-zustand-devtools'
 import { create } from 'zustand'
+
+import env from '@/env'
 
 type ISessionParent = {
   user: IUser
@@ -8,10 +11,14 @@ type ISessionParent = {
   }
 }
 
-export default create<ISessionParent>((set) => ({
+const useParentSession = create<ISessionParent>((set) => ({
   user: null,
   hydrated: false,
   controls: {
     setUser: (user) => set({ user, hydrated: true }),
   },
 }))
+
+export default useParentSession
+
+if (env.VERCEL_ENV === 'development') mountStoreDevtool('useParentSession', useParentSession)

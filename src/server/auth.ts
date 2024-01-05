@@ -45,7 +45,23 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  adapter: PrismaAdapter(prisma),
+  adapter: {
+    ...PrismaAdapter(prisma),
+    createUser: async (userData) => {
+      const user = await prisma.user.create({
+        data: {
+          ...userData,
+          ownership: {
+            create: {
+              cardPackId: 'classic',
+            },
+          },
+        },
+      })
+
+      return user
+    },
+  },
   providers: [
     /**
      * ...add more providers here.

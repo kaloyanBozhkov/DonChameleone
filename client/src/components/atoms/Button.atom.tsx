@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useLayoutEffect, useState } from 'react'
 
 import ComicShadow from '../templates/ComicShadow.template'
 
@@ -13,9 +13,11 @@ export default function Button({
   wrapperStyle,
   dotsLoaderProps,
   withDots = true,
+  isLoading = false,
 }: {
   onClick?: () => void
   label: ReactNode
+  isLoading: boolean
   className?: string
   labelClassName?: string
   wrapperClassName?: string
@@ -25,9 +27,11 @@ export default function Button({
 }) {
   const [clicked, setClicked] = useState(false)
 
+  useLayoutEffect(() => {}, [withDots])
+
   let content = label
   if (typeof label === 'string') content = <p>{label}</p>
-  if (withDots && clicked) {
+  if ((withDots && clicked) || isLoading) {
     const bg = className?.split('bg-')[1]?.split(' ')[0]
     content = (
       <div className="flex w-full items-center justify-center">
@@ -39,6 +43,9 @@ export default function Button({
       </div>
     )
   }
+  useLayoutEffect(() => {
+    setClicked(false)
+  }, [isLoading])
 
   return (
     <ComicShadow
@@ -49,8 +56,7 @@ export default function Button({
         className={`pointer-events-auto relative cursor-pointer border-[4px] border-white ${className} group z-0`}
         onClick={() => {
           onClick?.()
-
-          if (withDots) setClicked(true)
+          setClicked(true)
         }}
       >
         <div

@@ -7,11 +7,11 @@ import { GAME_PHASE } from '@prisma/client'
 import { isCardPackOwner } from '../../common'
 
 export const create = protectedProcedure
-  .input(z.object({ cardPackId: z.string().uuid() }))
+  .input(z.object({ cardPackId: z.string() }))
   .mutation(async ({ ctx: { prisma, session }, input: { cardPackId } }) => {
     await isCardPackOwner(prisma, session.user.id, cardPackId)
 
-    const { id } = await prisma.room.create({
+    const { id, name } = await prisma.room.create({
       data: {
         name: getRoomName(),
         cardPackId,

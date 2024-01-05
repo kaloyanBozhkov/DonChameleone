@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 import Button from '@/components/atoms/Button.atom'
 import CopyButton from '@/components/atoms/CopyButton.atom'
@@ -11,10 +11,14 @@ import HeaderControls from '@/components/molecules/HeaderControls.molecule'
 import PageTitle from '@/components/molecules/PageTitle.molecule'
 import TranspCard from '@/components/molecules/TranspCard.molecule'
 import ComicPage from '@/components/templates/ComicPage.template'
+import useRoom from '@/store/useRoom'
 import { getBaseUrl } from '@/utils/utils'
 
 export default function InviteFriendsPage() {
-  const roomName = 'room name'
+  const room = useRoom(({ room }) => room)
+
+  if (!room) return <Navigate to="/play" />
+
   return (
     <ComicPage>
       <AppLayout header={<HeaderControls />}>
@@ -34,8 +38,8 @@ export default function InviteFriendsPage() {
                   <span className="text-hot-200">name</span> is:
                 </p>
               </Stack>
-              <DisplayInput value={roomName} className="sm:max-w-[388px]" />
-              <CopyButton value={`${getBaseUrl()}/join?room=${roomName}`}>
+              <DisplayInput value={room.name} className="sm:max-w-[388px]" />
+              <CopyButton value={`${getBaseUrl()}/join?room=${room.name}`}>
                 {({ copied, copy }) => (
                   <Button
                     wrapperClassName="max-w-[100%]"

@@ -1,6 +1,6 @@
-import { z } from 'zod'
+import { protectedProcedure } from '@/server/api/trpc'
 
-import { protectedProcedure } from '../../trpc'
+import { z } from 'zod'
 
 export const getPlayers = protectedProcedure
   .input(z.object({ roomId: z.string().uuid() }))

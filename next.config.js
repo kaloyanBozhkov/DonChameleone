@@ -30,6 +30,15 @@ const config = {
           },
         ],
       },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'http://localhost:8080',
+          },
+        ],
+      },
     ]
   },
 }

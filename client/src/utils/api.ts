@@ -11,11 +11,13 @@ export const trpc = createTRPCReact<AppRouter>({ abortOnUnmount: true })
 export const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: `${env.SERVER_NEXT_PUBLIC_DOMAIN}/api/trpc`,
-      async headers() {
-        return {
-          //   authorization: getAuthCookie(),
-        }
+      url: `${env.NEXT_PUBLIC_DOMAIN}/api/trpc`,
+      fetch(url, options) {
+        return fetch(url, {
+          ...options,
+          // allow iframe to include credentials of parent window (next-auth session)
+          credentials: 'include',
+        })
       },
     }),
   ],

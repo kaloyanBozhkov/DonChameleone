@@ -12,7 +12,7 @@ import CheckboxButton from './CheckboxButton.molecule'
 const HeaderControls = ({
   rightAction = 'back',
 }: {
-  rightAction?: 'rules' | 'back' | 'signout'
+  rightAction?: 'rules' | 'back' | 'signout' | 'quit'
 }) => {
   const loc = useLocation(),
     theme = useTheme(),
@@ -72,6 +72,22 @@ const HeaderControls = ({
           label={
             <Group className="h-full w-full gap-[6px]">
               <p>Sign Out</p>
+            </Group>
+          }
+          className={`bg-hot-200 ${btnSizes}`}
+          labelClassName={labelSizes}
+        />
+      )}
+      {rightAction === 'quit' && (
+        <Button
+          withDots
+          onClick={() => {
+            alert('quit!')
+            nav('/')
+          }}
+          label={
+            <Group className="h-full w-full gap-[6px]">
+              <p>Quit</p>
             </Group>
           }
           className={`bg-hot-200 ${btnSizes}`}

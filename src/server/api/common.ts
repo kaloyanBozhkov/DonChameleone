@@ -5,11 +5,7 @@ export const isCardPackOwner = (prisma: PrismaClient, userId: string, cardPackId
   prisma.ownership.findFirstOrThrow({
     where: {
       userId,
-      cardPacks: {
-        some: {
-          id: cardPackId,
-        },
-      },
+      cardPackId,
     },
     select: null,
   })

@@ -1,4 +1,7 @@
+import { mountStoreDevtool } from 'simple-zustand-devtools'
 import { create } from 'zustand'
+
+import env from '@/env'
 
 type GameConfig = {
   sound: boolean
@@ -15,3 +18,5 @@ const useGameConfig = create<GameConfig>((set) => ({
 }))
 
 export default useGameConfig
+
+if (env.VERCEL_ENV === 'development') mountStoreDevtool('useGameConfig', useGameConfig)

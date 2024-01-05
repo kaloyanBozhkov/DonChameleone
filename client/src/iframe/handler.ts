@@ -11,8 +11,9 @@ export const iframeHandler = () => {
       if (message.action) console.log('Message from parent iframe:', message)
 
       switch (message.action) {
-        case 'receiveSessionUpdate':
+        case 'receiveSessionUpdate': {
           return useParentSession.getState().controls.setUser(message.payload.user)
+        }
         default:
           return
       }

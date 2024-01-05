@@ -11,9 +11,8 @@ export const get = protectedProcedure
         createdAt: 'desc',
       },
       select: {
-        round: true,
-        phase: true,
-        roundQuestion: true,
+        id: true,
+        name: true,
       },
     })
   })

@@ -1,14 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
 import Button from '@/components/atoms/Button.atom'
-import CopyButton from '@/components/atoms/CopyButton.atom'
-import DisplayInput from '@/components/atoms/DisplayText'
 import PlayerTag from '@/components/atoms/PlayerTag.atom'
 import AppLayout from '@/components/layouts/App.layout'
 import Center from '@/components/layouts/Center.layout'
-import Group from '@/components/layouts/Group.layout'
 import Stack from '@/components/layouts/Stack.layout'
 import DragOrder from '@/components/molecules/DragOrder.molecule'
 import HeaderControls from '@/components/molecules/HeaderControls.molecule'

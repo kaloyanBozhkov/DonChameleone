@@ -5,6 +5,8 @@ import { HashRouter, Navigate, Route } from 'react-router-dom'
 import PageTransition from './components/layouts/PageTransition.layout'
 import SignedIn from './components/molecules/SignedIn.molecule'
 import SignedOut from './components/molecules/SignedOut.molecule'
+import Authed from './components/route/Authed.route'
+import InRoom from './components/route/InRoom.route'
 import { iframeHandler } from './iframe/handler'
 import AboutPage from './pages/About.page'
 import AuthPage from './pages/Auth.page'
@@ -44,14 +46,9 @@ const App = () => {
           path="/play"
           Component={() => {
             return (
-              <>
-                <SignedIn>
-                  <RoomOptionPage />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/auth" />
-                </SignedOut>
-              </>
+              <Authed>
+                <RoomOptionPage />
+              </Authed>
             )
           }}
         />
@@ -90,14 +87,9 @@ const App = () => {
           path="/join"
           Component={() => {
             return (
-              <>
-                <SignedIn>
-                  <JoinRoomPage />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/auth" />
-                </SignedOut>
-              </>
+              <Authed>
+                <JoinRoomPage />
+              </Authed>
             )
           }}
         />
@@ -105,14 +97,9 @@ const App = () => {
           path="/create"
           Component={() => {
             return (
-              <>
-                <SignedIn>
-                  <SelectThemePage />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/auth" />
-                </SignedOut>
-              </>
+              <Authed>
+                <SelectThemePage />
+              </Authed>
             )
           }}
         />
@@ -120,14 +107,11 @@ const App = () => {
           path="/invite"
           Component={() => {
             return (
-              <>
-                <SignedIn>
+              <Authed>
+                <InRoom>
                   <InviteFriendsPage />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/auth" />
-                </SignedOut>
-              </>
+                </InRoom>
+              </Authed>
             )
           }}
         />
@@ -135,14 +119,11 @@ const App = () => {
           path="/lobby"
           Component={() => {
             return (
-              <>
-                <SignedIn>
+              <Authed>
+                <InRoom>
                   <LobbyPage />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/auth" />
-                </SignedOut>
-              </>
+                </InRoom>
+              </Authed>
             )
           }}
         />
